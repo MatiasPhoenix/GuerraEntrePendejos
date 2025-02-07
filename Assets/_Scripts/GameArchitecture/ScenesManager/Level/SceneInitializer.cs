@@ -18,9 +18,9 @@ public class SceneInitializer : MonoBehaviour
 
     private IEnumerator LoadDependencies()
     {
-        for (int i = 0; i <= this.sceneDependencies.Length - 1; i++)
+        for (int i = 0; i <= sceneDependencies.Length - 1; i++)
         {
-            SceneSO sceneToLoad = this.sceneDependencies[i];
+            SceneSO sceneToLoad = sceneDependencies[i];
 
             if (SceneManager.GetSceneByName(sceneToLoad.name).isLoaded == false)
             {
