@@ -2,33 +2,42 @@ using UnityEngine;
 
 public class MinigameRings : MonoBehaviour
 {
-   public Transform baseRing;      // L'anello fisso
-    public Transform shrinkingRing;  // L'anello che si rimpicciolisce
+    public Transform baseRing;     
+    public Transform shrinkingRing;
+    public Transform internalSpace;
 
-    public float shrinkSpeed = 1f;   // Velocità di riduzione
-    private float originalScale;    // Scala iniziale
-    private bool hasPressed = false; // Controllo se il giocatore ha premuto
-    private bool success = false;    // Indica se il giocatore ha avuto successo
+    public float _shrinkSpeed = 1f; 
+    private float _originalScale;   
+    private bool _hasPressed = false; 
+    private bool _success = false;    
 
     void Start()
     {
-        originalScale = shrinkingRing.localScale.x;
+        _originalScale = shrinkingRing.localScale.x;
 
-        // Assicurati che shrinkingRing abbia un Rigidbody2D e sia un Trigger
         Rigidbody2D rbShrinking = shrinkingRing.GetComponent<Rigidbody2D>();
         if (rbShrinking == null)
         {
             rbShrinking = shrinkingRing.gameObject.AddComponent<Rigidbody2D>();
-            rbShrinking.isKinematic = true; // Impostalo su Kinematic per non influenzare la fisica
         }
+        rbShrinking.bodyType = RigidbodyType2D.Kinematic; 
         shrinkingRing.GetComponent<CircleCollider2D>().isTrigger = true;
 
-        // Assicurati che baseRing abbia un Rigidbody2D
         Rigidbody2D rbBase = baseRing.GetComponent<Rigidbody2D>();
         if (rbBase == null)
         {
             rbBase = baseRing.gameObject.AddComponent<Rigidbody2D>();
-            rbBase.isKinematic = true; // Impostalo su Kinematic per non influenzare la fisica
+        }
+        rbBase.bodyType = RigidbodyType2D.Kinematic;
+
+        if (internalSpace != null)
+        {
+            Rigidbody2D rbInternal = internalSpace.GetComponent<Rigidbody2D>();
+            if (rbInternal == null)
+            {
+                rbInternal = internalSpace.gameObject.AddComponent<Rigidbody2D>();
+            }
+            rbInternal.bodyType = RigidbodyType2D.Kinematic; 
         }
 
         Debug.Log("Gioco iniziato, collider configurati.");
@@ -36,67 +45,62 @@ public class MinigameRings : MonoBehaviour
 
     void Update()
     {
-        if (hasPressed) return; // Se il giocatore ha già premuto, non fare nulla
+        if (_hasPressed) return;
 
-        // Rimpicciolisce l'anello
-        shrinkingRing.localScale -= Vector3.one * shrinkSpeed * Time.deltaTime * 0.3f;
+        shrinkingRing.localScale -= Vector3.one * _shrinkSpeed * Time.deltaTime * 0.3f;
 
-        // Se il cerchio è diventato troppo piccolo, fallimento automatico
         if (shrinkingRing.localScale.x < 0.005f)
         {
-            Debug.Log("Hai fallito! Il cerchio è scomparso.");
             ResetGame();
         }
 
-        // Se il giocatore preme SPAZIO
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            CheckSuccess();
-        }
-
-        // Controllo del successo basato sui raggi
         float shrinkingRadius = shrinkingRing.GetComponent<CircleCollider2D>().radius * shrinkingRing.localScale.x;
         float baseRadius = baseRing.GetComponent<CircleCollider2D>().radius * baseRing.localScale.x;
+        float internalRadius = 0f;
 
-        if (shrinkingRadius <= baseRadius && !success)
+        if (internalSpace != null)
         {
-            Success();
-        }
-        else if (shrinkingRadius > baseRadius && success)
-        {
-            //Se il giocatore ha premuto spazio mentre era dentro, e poi il cerchio è uscito, deve fallire
-            if (hasPressed)
-            {
-                Debug.Log("Hai fallito! Non hai premuto SPAZIO al momento giusto.");
-                Invoke(nameof(ResetGame), 1f);
-                hasPressed = true;
-                success = false;
-            }
+            internalRadius = internalSpace.GetComponent<CircleCollider2D>().radius * internalSpace.localScale.x;
         }
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            CheckSuccess(shrinkingRadius, baseRadius, internalRadius);
+        }
     }
 
-    void CheckSuccess()
+    void CheckSuccess(float shrinkingRadius, float baseRadius, float internalRadius)
     {
-        hasPressed = true;
-        if (!success)
-        {
-            Debug.Log("Hai fallito! Non hai premuto SPAZIO al momento giusto.");
-        }
+        _hasPressed = true;
+
+        if (_hasPressed)
+            Success(shrinkingRadius, baseRadius, internalRadius);
+
         Invoke(nameof(ResetGame), 1f);
     }
 
-    void Success()
+    void Success(float shrinkingRadius, float baseRadius, float internalRadius)
     {
-        if (success) return; // Evita di chiamare Success più volte
-        success = true;
-        Debug.Log("Azione riuscita! I cerchi sono sovrapposti.");
+        if (shrinkingRadius <= baseRadius && !_success && (internalSpace == null || shrinkingRadius > internalRadius))
+        {
+            if (_success) return;
+            _success = true;
+            Debug.Log("Azione riuscita! I cerchi sono sovrapposti.");
+            
+        }
+        else 
+        {
+            Debug.Log("Hai fallito! Non hai premuto SPAZIO al momento giusto.");
+            Invoke(nameof(ResetGame), 1f);
+            _hasPressed = true;
+            _success = false;
+        }
     }
 
     void ResetGame()
     {
-        shrinkingRing.localScale = Vector3.one * originalScale;
-        hasPressed = false;
-        success = false;
+        _hasPressed = false;
+        _success = false;
+        shrinkingRing.localScale = Vector3.one * _originalScale;
     }
 }
