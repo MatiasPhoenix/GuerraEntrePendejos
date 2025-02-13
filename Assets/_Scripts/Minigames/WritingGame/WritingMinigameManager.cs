@@ -30,7 +30,6 @@ public class WritingMinigameManager : MonoBehaviour
                 _loseObject.SetActive(true);
                 _inputPressed = true; 
             }
-
             Invoke("SetNewLetter", 0.5f); // Invoca la funzione 
         }
     }
