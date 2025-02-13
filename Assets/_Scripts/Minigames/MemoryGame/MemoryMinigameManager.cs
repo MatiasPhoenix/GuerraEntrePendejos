@@ -1,109 +1,80 @@
-using System.Collections.Generic;
+using System;
+using System.Collections;
 using UnityEngine;
 
 public class MemoryMinigameManager : MonoBehaviour
 {
-    [Header("List/Deck")]
-    public Queue<Vector2> _cardPositions = new Queue<Vector2>();
-    [SerializeField] private MemoryGameCard _cardPrefab;
-    
-    private List<MemoryGameCard> _deckMemory;
-    private List<MemoryGameCard> _secondDeckMemory;
+    public static MemoryMinigameManager Instance;
+    public MemoryPhaseManager currentPhase = MemoryPhaseManager.ChooseCard;
+    private bool _matchResult;
 
-    void Start()
+    private void Awake() => Instance = this;
+
+    public void ChangePhaseMemorygame(MemoryPhaseManager phase)
     {
-        _deckMemory = new List<MemoryGameCard>(5);
-        _secondDeckMemory = new List<MemoryGameCard>(5);
-        CreateCards();
-        DeckConfiguration();
-        ConfigPositions();
-    }
-
-    void CreateCards()
-    {
-        for (int i = 0; i < 5; i++)
+        currentPhase = phase;
+        switch (currentPhase)
         {
-            MemoryGameCard card1 = Instantiate(_cardPrefab);
-            MemoryGameCard card2 = Instantiate(_cardPrefab);
+            case MemoryPhaseManager.ChooseCard:
+                ChooseCardPhase();
+                break;
 
-            _deckMemory.Add(card1);
-            _secondDeckMemory.Add(card2);
-        }
-    }
+            case MemoryPhaseManager.MatchOrNot:
+                CheckMatchPhase();
+                break;
 
-    void DeckConfiguration()
-    {
-        List<char> symbols = new List<char>();
+            case MemoryPhaseManager.RemoveCard:
+                RemoveMatchedCards();
+                break;
 
-        // Genera i simboli unici
-        for (int i = 0; i < 5; i++)
-        {
-            char symbol = RandomSymbol();
-            symbols.Add(symbol);
-        }
-
-        // Assegna i simboli alle carte
-        for (int j = 0; j < _deckMemory.Count; j++)
-        {
-            _deckMemory[j].SetupSymbolCard(symbols[j]);
-            _secondDeckMemory[j].SetupSymbolCard(symbols[j]); // Ora i simboli sono identici
-        }
-
-        // Mischia i due mazzi
-        ShuffleDeck(_deckMemory);
-        ShuffleDeck(_secondDeckMemory);
-    }
-
-    void ShuffleDeck(List<MemoryGameCard> deck)
-    {
-        for (int i = deck.Count - 1; i > 0; i--)
-        {
-            int randomIndex = Random.Range(0, i + 1);
-            MemoryGameCard temp = deck[i];
-            deck[i] = deck[randomIndex];
-            deck[randomIndex] = temp;
+            case MemoryPhaseManager.FlipCards:
+                ResetUnmatchedCards();
+                break;
         }
     }
 
-    void ConfigPositions()
+    void ChooseCardPhase() => Debug.Log("---Scegli una carta!");
+
+    void CheckMatchPhase()
     {
-        _cardPositions.Clear();
+        Debug.Log("Controllo se c'è un match...");
 
-        Vector2 startPos = new Vector2(-3f, 1f);
-        Vector2 currentPos = startPos;
-        int cardsPerRow = 5;
-
-        // Posiziona il primo mazzo
-        for (int i = 0; i < _deckMemory.Count; i++)
-        {
-            _deckMemory[i].transform.position = currentPos;
-            _cardPositions.Enqueue(currentPos);
-
-            currentPos.x += 1.5f;
-            if ((i + 1) % cardsPerRow == 0)
-            {
-                currentPos.x = startPos.x;
-                currentPos.y -= 0f;
-            }
-        }
-
-        // Aggiungi spazio tra i due mazzi
-        currentPos.y -= 2f;
-
-        // Posiziona il secondo mazzo
-        for (int i = 0; i < _secondDeckMemory.Count; i++)
-        {
-            _secondDeckMemory[i].transform.position = currentPos;
-            _cardPositions.Enqueue(currentPos);
-
-            currentPos.x += 1.5f;
-            if ((i + 1) % cardsPerRow == 0)
-            {
-                currentPos.x = startPos.x;
-                currentPos.y -= 0f;
-            }
-        }
+        if (_matchResult)
+            ChangePhaseMemorygame(MemoryPhaseManager.RemoveCard);
+        else
+            ChangePhaseMemorygame(MemoryPhaseManager.FlipCards);
     }
 
-    char RandomSymbol() => "abcdefghijklmnopqrstuvwxyz"[Random.Range(0, 26)];
+    void RemoveMatchedCards()
+    {
+        Debug.Log("Rimuovendo carte");
+        StartCoroutine(DelayedRestore());   
+    }
+
+    void ResetUnmatchedCards()
+    {
+        Debug.Log("Rigirando carte");
+        StartCoroutine(DelayedRestore());   
+    }
+
+    private IEnumerator DelayedRestore()
+    {
+        yield return new WaitForSeconds(1f);
+
+        if (currentPhase == MemoryPhaseManager.FlipCards)
+            DeckManager.Instance.RestoreCardPosition();
+        else if (currentPhase == MemoryPhaseManager.RemoveCard)
+            DeckManager.Instance.RemoveCardAfterMatch();
+    }
+
+    public bool IsMatch(bool matchOrNot) => _matchResult = matchOrNot;
+
+}
+
+public enum MemoryPhaseManager
+{
+    ChooseCard,
+    MatchOrNot,
+    RemoveCard,
+    FlipCards
 }
