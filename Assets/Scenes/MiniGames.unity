@@ -1566,7 +1566,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &520179070
 Transform:
   m_ObjectHideFlags: 0
@@ -2482,6 +2482,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelInitializer
       objectReference: {fileID: 0}
+    - target: {fileID: 58501152571967152, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2149671260813304699, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -2570,7 +2574,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1309155245
 Transform:
   m_ObjectHideFlags: 0
