@@ -1,53 +1,38 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-  //Movimento e Rigidbody
-  public InputAction MoveAction;
-  public float MoveSpeed = 4;
-  Rigidbody2D rigidbody2d;
-  Vector2 move;
+    [Header("Character Objects")]
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private BaseUnit thisBaseUnit;
+    private Vector2 moveInput;
+    private Rigidbody2D rb;
 
-  Animator animator;
+    void Start() => rb = GetComponent<Rigidbody2D>();
 
-  Vector2 moveDirection = new Vector2(1, 0);
-  public GameObject projectilePrefab;
-
-  AudioSource audioSource;
-
-
-  void Start()
-  {
-    MoveAction.Enable();
-    rigidbody2d = GetComponent<Rigidbody2D>();
-
-    animator = GetComponent<Animator>();
-
-  }
-
-  void Update()
-  {
-    move = MoveAction.ReadValue<Vector2>();
-
-    if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
+    void Update()
     {
-      moveDirection.Set(move.x, move.y);
-      moveDirection.Normalize();
-    }
-    animator.SetFloat("Look X", moveDirection.x);
-    animator.SetFloat("Look Y", moveDirection.y);
-    animator.SetFloat("Speed", move.magnitude);
-  }
+        // Input movimento
+        moveInput.x = Input.GetAxisRaw("Horizontal");
+        moveInput.y = Input.GetAxisRaw("Vertical");
+        moveInput.Normalize(); // Evita velocità maggiore in diagonale
 
-  void FixedUpdate()
-  {
-    Vector2 position = (Vector2)rigidbody2d.position + move * MoveSpeed * Time.deltaTime;
-    rigidbody2d.MovePosition(position);
-  }
-  
-  public void PlaySound(AudioClip clip)
-  {
-    audioSource.PlayOneShot(clip);
-  }
+        if (moveInput.x > 0)
+            transform.localScale = new Vector3(-1, 1, 1); // Guarda a sinistra
+        else if (moveInput.x < 0)
+            transform.localScale = new Vector3(1, 1, 1);  // Guarda a destra
+
+
+        // Se il personaggio si muove, attiva animazione, altrimenti la ferma
+        if (AnimationManager.Instance != null) // Controlla se il singleton esiste
+        {
+            bool isWalking = moveInput != Vector2.zero;
+            AnimationManager.Instance.PlayWalkAnimation(thisBaseUnit, isWalking);
+        }
+    }
+
+    void FixedUpdate()
+    {
+        rb.linearVelocity = moveInput * speed; // Corretta la variabile da linearVelocity a velocity
+    }
 }
