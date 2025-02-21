@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
 
     void Start() => rb = GetComponent<Rigidbody2D>();
 
-    void Update()
+    void FixedUpdate()
     {
         // Input movimento
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -29,10 +29,7 @@ public class PlayerController : MonoBehaviour
             bool isWalking = moveInput != Vector2.zero;
             AnimationManager.Instance.PlayWalkAnimation(thisBaseUnit, isWalking);
         }
+        rb.linearVelocity = moveInput * speed;
     }
 
-    void FixedUpdate()
-    {
-        rb.linearVelocity = moveInput * speed; // Corretta la variabile da linearVelocity a velocity
-    }
 }
