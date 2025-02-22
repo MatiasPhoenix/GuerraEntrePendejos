@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,18 +6,36 @@ public class MinigameManager : MonoBehaviour
     [Header("Minigames")]
     [SerializeField] private List<GameObject> _minigames;
 
-    private int _minigamesIndex;
-    public event EventHandler MinigamesEndEvent;
+    void OnEnable() => StartMinigame.OnStartNewMinigame += MinigameNumber;
+    void OnDisable() => StartMinigame.OnStartNewMinigame -= MinigameNumber;
+
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-            EndMinigame(_minigamesIndex);
+            EndMinigame();
     }
 
-    public void StartMinigame(int index) => _minigames[index].SetActive(true);
+    public void MinigameNumber()
+    {
+        if (_minigames.Count > 0)
+        {
+            Debug.LogError($"Minigioco con indice {GameManager.Instance.MinigameIndexLocal} non esiste!");
+            return;
+        }
 
-    public void EndMinigame(int index) => _minigames[index].SetActive(false);
+        ChooseMinigame(GameManager.Instance.MinigameIndexLocal);
+    }
 
+    public void ChooseMinigame(int index)
+    {
+        if (index < 0 || index >= _minigames.Count) return;
+        _minigames[index].SetActive(true);
+    }
 
+    public void EndMinigame()
+    {
+        if (_minigames.Count > 0)
+            _minigames[GameManager.Instance.MinigameIndexLocal].SetActive(false);
+    }
 }

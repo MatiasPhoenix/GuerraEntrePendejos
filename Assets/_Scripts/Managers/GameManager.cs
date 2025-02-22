@@ -4,15 +4,13 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public int MinigameIndexLocal;
 
     private void Awake() => Instance = this;
 
     private bool _heroesWin = true;
 
-    void Start()
-    {
-        ChangeState(GameState.AdventureBegin);
-    }
+    void Start() => ChangeState(GameState.AdventureBegin);
 
     void Update()
     {
@@ -25,7 +23,6 @@ public class GameManager : MonoBehaviour
 
     [Header("Game State Manager")]
     public GameState GameState;
-
 
     public void ChangeState(GameState newState)
     {
