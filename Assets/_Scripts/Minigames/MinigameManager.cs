@@ -6,9 +6,10 @@ public class MinigameManager : MonoBehaviour
     [Header("Minigames")]
     [SerializeField] private List<GameObject> _minigames;
 
-    void OnEnable() => StartMinigame.OnStartNewMinigame += MinigameNumber;
-    void OnDisable() => StartMinigame.OnStartNewMinigame -= MinigameNumber;
+    // void OnEnable() => StartMinigame.OnStartNewMinigame += MinigameNumber;
+    // void OnDisable() => StartMinigame.OnStartNewMinigame -= MinigameNumber;
 
+    private void Start() => StartMinigame();
 
     private void Update()
     {
@@ -16,13 +17,13 @@ public class MinigameManager : MonoBehaviour
             EndMinigame();
     }
 
-    public void MinigameNumber()
+    public void StartMinigame()
     {
-        if (_minigames.Count > 0)
-        {
-            Debug.LogError($"Minigioco con indice {GameManager.Instance.MinigameIndexLocal} non esiste!");
-            return;
-        }
+        // if (_minigames.Count > 0)
+        // {
+        //     Debug.LogError($"Minigioco con indice {GameManager.Instance.MinigameIndexLocal} non esiste!");
+        //     return;
+        // }
 
         ChooseMinigame(GameManager.Instance.MinigameIndexLocal);
     }
