@@ -24,6 +24,7 @@ public class WritingMinigameManager : MonoBehaviour
             {
                 _winObject.SetActive(true);
                 _inputPressed = true; 
+                GameManager.Instance.WarScoreCounter(10);
             }
             else
             {

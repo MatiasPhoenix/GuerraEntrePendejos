@@ -1,4 +1,5 @@
 using Tarodev_Pathfinding._Scripts.Grid;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Game State Manager")]
     public GameState GameState;
+    public TextMeshProUGUI PlayerScore;
+
+    private int _playerScore = 0;
 
     public void ChangeState(GameState newState)
     {
@@ -46,7 +50,7 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.SpawnUnitsForGame();
                 SpawnManager.Instance.PopulateUnitLists();
                 ChangeState(GameState.EnemySpawn);
-                Debug.Log($"{SpawnManager.Instance.GetHeroList().Count} Spawned!"); 
+                Debug.Log($"{SpawnManager.Instance.GetHeroList().Count} Spawned!");
                 break;
             case GameState.EnemySpawn:
                 Debug.Log("---Inizia SpawnEnemies!");
@@ -81,6 +85,12 @@ public class GameManager : MonoBehaviour
     public bool BattleResult(bool result) => _heroesWin = result;
     public bool BattleVictory() => _heroesWin;
     public void EndTurn() => ChangeState(GameState.EnemyTurn);
+    public void WarScoreCounter(int scoreNumber)
+    {
+        _playerScore += scoreNumber;
+        PlayerScore.text = $"War Score: {_playerScore}";
+        Debug.Log($"Score: {_playerScore}");
+    }
 }
 
 

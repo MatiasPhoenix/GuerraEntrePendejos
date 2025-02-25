@@ -1,4 +1,3 @@
-using System;
 using System.Collections;
 using UnityEngine;
 
@@ -37,7 +36,7 @@ public class MemoryMinigameManager : MonoBehaviour
 
     void CheckMatchPhase()
     {
-        Debug.Log("Controllo se c'è un match...");
+        // Debug.Log("Controllo se c'è un match...");
 
         if (_matchResult)
             ChangePhaseMemorygame(MemoryPhaseManager.RemoveCard);
@@ -47,13 +46,13 @@ public class MemoryMinigameManager : MonoBehaviour
 
     void RemoveMatchedCards()
     {
-        Debug.Log("Rimuovendo carte");
+        // Debug.Log("Rimuovendo carte");
         StartCoroutine(DelayedRestore());   
     }
 
     void ResetUnmatchedCards()
     {
-        Debug.Log("Rigirando carte");
+        // Debug.Log("Rigirando carte");
         StartCoroutine(DelayedRestore());   
     }
 

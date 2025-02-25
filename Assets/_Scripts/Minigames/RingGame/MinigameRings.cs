@@ -94,6 +94,7 @@ public class MinigameRings : MonoBehaviour
             _success = true;
             Debug.Log("Azione riuscita! I cerchi sono sovrapposti.");
             WinOrLose(true);
+            GameManager.Instance.WarScoreCounter(10);
         }
         else 
         {

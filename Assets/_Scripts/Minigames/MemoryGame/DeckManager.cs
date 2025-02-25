@@ -60,6 +60,7 @@ public class DeckManager : MonoBehaviour
         if (CheckMatch())
         {
             _matchText.gameObject.SetActive(true);
+            GameManager.Instance.WarScoreCounter(10);
         }
         else
         {
