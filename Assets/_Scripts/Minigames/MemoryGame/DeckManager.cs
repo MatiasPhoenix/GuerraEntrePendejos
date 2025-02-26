@@ -189,4 +189,13 @@ public class DeckManager : MonoBehaviour
         });
         MemoryMinigameManager.Instance.ChangePhaseMemorygame(MemoryPhaseManager.ChooseCard);
     }
+
+    public void EmptyDeckMemory()
+    {
+        foreach (var card in _deckMemory)
+            Destroy(card.gameObject);
+
+        foreach (var card in _secondDeckMemory)
+            Destroy(card.gameObject);
+    }
 }

@@ -139,6 +139,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1008356618600589626}
     m_Modifications:
+    - target: {fileID: 1082431700090271753, guid: 6c4d025f7cfa84371b946fd4062d48a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1382782348239096657, guid: 6c4d025f7cfa84371b946fd4062d48a9, type: 3}
       propertyPath: m_Name
       value: SPUM_20240911215638224
@@ -254,6 +258,10 @@ PrefabInstance:
     - target: {fileID: 4599049377455072051, guid: 6c4d025f7cfa84371b946fd4062d48a9, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5923947277028851972, guid: 6c4d025f7cfa84371b946fd4062d48a9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
