@@ -19,11 +19,11 @@ public static class AreaMovementAndAttack
         filledNodes.Add(startNode);
 
         while (toFill.Count > 0)
-        {
+        {            
             var current = toFill.Dequeue();
-
+            
             foreach (var neighbor in current.Neighbors)
-            {
+            {            
                 if (!MouseManager.Instance.attackPhase)
                 {
                     if (!filledNodes.Contains(neighbor) && IsFillable(neighbor))

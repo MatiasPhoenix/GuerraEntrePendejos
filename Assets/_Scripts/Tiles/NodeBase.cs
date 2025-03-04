@@ -34,7 +34,7 @@ namespace _Scripts.Tiles
 
         public virtual void Init(bool walkable, ICoords coords)
         {
-            Walkable = walkable;
+            // Walkable = walkable;
             if (!Walkable)
                 MountainOrObstacle = true;
 
@@ -44,9 +44,20 @@ namespace _Scripts.Tiles
 
             OnHoverTile += OnOnHoverTile;
 
-            Coords = coords;
-            transform.position = Coords.Pos;
+            if (coords == null)
+            {
+                Coords = new SquareCoords { Pos = transform.position };  // 👈 Se `coords` è NULL, lo inizializziamo
+                Debug.LogWarning($"⚠️ Coords era NULL, assegnato da transform.position: {Coords.Pos}");
+            }
+            else
+            {
+                Coords = coords;
+                transform.position = Coords.Pos;  // 👈 Garantiamo che `Coords.Pos` sia uguale a `transform.position`
+            }
+
+            // Debug.Log($"✅ Inizializzazione completata per {gameObject.name}: Pos = {Coords.Pos}");
         }
+
 
         public static event Action<NodeBase> OnHoverTile;
         private void OnEnable() => OnHoverTile += OnOnHoverTile;
@@ -59,7 +70,7 @@ namespace _Scripts.Tiles
                 OnHoverTile?.Invoke(this);
 
             if (MouseManager.Instance.attackPhase == true && TileForFloodFill.activeSelf && OccupateByEnemy)
-                Debug.Log($"Qui c'è un ENEMY, {ThisEnemy.FactionAndName()} -> {Coords.Pos}, walkable -> {Walkable} e mountain -> {MountainOrObstacle}");
+                Debug.Log($"Qui c'è un ENEMY, {ThisEnemy.FactionAndName()} -> {transform.position}, walkable -> {Walkable} e mountain -> {MountainOrObstacle}");
 
             if (ThisEnemy != null && CanvasManager.Instance.EnemyPanelIsActive() == false)
             {
@@ -151,7 +162,7 @@ namespace _Scripts.Tiles
             // Debug nemico
             if (OccupateByEnemy)
             {
-                Debug.Log($"Nemico trovato: {ThisEnemy.FactionAndName()} -> {Coords.Pos}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
+                Debug.Log($"Nemico trovato: {ThisEnemy.FactionAndName()} -> {transform.position}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
             }
         }
 
@@ -160,7 +171,7 @@ namespace _Scripts.Tiles
         {
             if (!OccupateByUnit && !OccupateByEnemy)
             {
-                Debug.Log($"TILE VUOTO -> {Coords.Pos}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
+                Debug.Log($"TILE VUOTO -> {transform.position}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
             }
         }
 

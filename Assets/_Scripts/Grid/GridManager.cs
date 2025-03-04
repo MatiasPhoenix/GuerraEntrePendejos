@@ -18,7 +18,7 @@ namespace Tarodev_Pathfinding._Scripts.Grid
         [SerializeField] private int _gridHeight;
 
 
-        public Dictionary<Vector2, NodeBase> Tiles { get; private set; }
+        public Dictionary<Vector2, NodeBase> Tiles;
         private NodeBase _playerNodeBase;
         private NodeBase _goalNodeBase;
 
@@ -31,28 +31,33 @@ namespace Tarodev_Pathfinding._Scripts.Grid
         private void OnTileHover(NodeBase nodeBase)
         {
             _goalNodeBase = nodeBase;
-            _goalNodeBase.transform.position = _goalNodeBase.Coords.Pos;
+            _goalNodeBase.Coords.Pos = _goalNodeBase.Coords.Pos;
 
             foreach (var t in Tiles.Values) t.RevertTile();
 
             var path = Pathfinding.FindPath(_playerNodeBase, _goalNodeBase);
         }
-        public void GeneratedGrid()
+        public void ActiveOnTileHoverForGame()
         {
-            Tiles = _scriptableGrid.GenerateGrid();
             foreach (var tile in Tiles.Values) tile.CacheNeighbors();
             NodeBase.OnHoverTile += OnTileHover;
-
-            GameManager.Instance.ChangeState(GameState.PlayerSpawn);
         }
+        // public void GeneratedGrid()
+        // {
+        //     Tiles = _scriptableGrid.GenerateGrid();
+        //     foreach (var tile in Tiles.Values) tile.CacheNeighbors();
+        //     NodeBase.OnHoverTile += OnTileHover;
+
+        //     GameManager.Instance.ChangeState(GameState.PlayerSpawn);
+        // }
 
         public void SpawnUnitsForGame() => SpawnManager.Instance.ChooseTileForSpawnUnits();
 
-        public void CreateMapGame()
-        {
-            var myGridMap = _scriptableGrid as ScriptableSquareGrid;
-            myGridMap.ChangeMapDimensions(_gridWidth, _gridHeight);
-        }
+        // public void CreateMapGame()
+        // {
+        //     var myGridMap = _scriptableGrid as ScriptableSquareGrid;
+        //     myGridMap.ChangeMapDimensions(_gridWidth, _gridHeight);
+        // }
 
         public NodeBase TileForTeams()
         {
@@ -71,18 +76,18 @@ namespace Tarodev_Pathfinding._Scripts.Grid
 
         public NodeBase GetTileAtPosition(Vector2 pos) => Tiles.TryGetValue(pos, out var tile) ? tile : null;
 
-        private void OnDrawGizmos()
-        {
-            if (!Application.isPlaying || !_drawConnections) return;
+        // private void OnDrawGizmos()
+        // {
+        //     if (!Application.isPlaying || !_drawConnections) return;
 
-            Gizmos.color = Color.red;
-            foreach (var tile in Tiles)
-            {
-                if (tile.Value.Connection == null) continue;
-                Gizmos.DrawLine((Vector3)tile.Key + new Vector3(0, 0, -1), (Vector3)tile.Value.Connection.Coords.Pos + new Vector3(0, 0, -1));
-            }
-        }
-        
+        //     Gizmos.color = Color.red;
+        //     foreach (var tile in Tiles)
+        //     {
+        //         if (tile.Value.Connection == null) continue;
+        //         Gizmos.DrawLine((Vector3)tile.Key + new Vector3(0, 0, -1), (Vector3)tile.Value.Connection.Coords.Pos + new Vector3(0, 0, -1));
+        //     }
+        // }
+
         public void UnitPresentInTile(NodeBase nodeSelected) => _playerNodeBase = nodeSelected;
 
         public void UnitDeselected() => _playerNodeBase = null;
@@ -106,7 +111,7 @@ namespace Tarodev_Pathfinding._Scripts.Grid
                     if (tile.Value.OccupateByUnit)
                         tile.Value.Walkable = true;
                 }
-                
+
                 if (!tile.Value.OccupateByUnit && !tile.Value.OccupateByEnemy && !tile.Value.MountainOrObstacle)
                     tile.Value.Walkable = true;
             }
@@ -125,7 +130,8 @@ namespace Tarodev_Pathfinding._Scripts.Grid
 
             foreach (HeroUnit hero in allHeroes)
             {
-                if (hero.transform.position == node.transform.position)
+                Vector2 pos = hero.transform.position;
+                if (pos == node.Coords.Pos)
                 {
                     node.ThisHero = hero;
                     node.OccupateByUnit = true;
@@ -135,7 +141,8 @@ namespace Tarodev_Pathfinding._Scripts.Grid
 
             foreach (EnemyUnit enemy in allEnemies)
             {
-                if (enemy.transform.position == node.transform.position)
+                Vector2 pos = enemy.transform.position;
+                if (pos == node.Coords.Pos)
                 {
                     node.ThisEnemy = enemy;
                     node.OccupateByEnemy = true;

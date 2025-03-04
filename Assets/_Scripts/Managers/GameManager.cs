@@ -41,8 +41,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.GameStart:
                 Debug.Log("---Inizia GeneratedGrid!");
-                GridManager.Instance.GeneratedGrid();
-                GridManager.Instance.CreateMapGame();
+                // GridManager.Instance.GeneratedGrid();
+                // GridManager.Instance.CreateMapGame();
                 StartCoroutine(CanvasManager.Instance.GameMessageStartOrEnd("Start"));
                 break;
             case GameState.PlayerSpawn:

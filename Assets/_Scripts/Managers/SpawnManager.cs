@@ -31,14 +31,12 @@ public class SpawnManager : MonoBehaviour
     public List<HeroUnit> GetHeroList() => _heroUnits;
     public List<EnemyUnit> GetEnemyList() => _enemyUnits;
 
-
     public void ChooseTileForSpawnUnits() //Select the tile to spawn the units
     {
         if (GameManager.Instance.GameState == GameState.PlayerSpawn)
         {
             for (int i = 0; i < _heroePrefabs.Count; i++)
             {
-
                 NodeBase playerNodeBase = GridManager.Instance.TileForTeams();
                 Instantiate(_heroePrefabs[i], playerNodeBase.Coords.Pos, _heroePrefabs[i].transform.rotation);
                 GridManager.Instance.UpdateTiles();
