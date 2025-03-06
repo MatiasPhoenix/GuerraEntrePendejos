@@ -368,9 +368,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1414401972}
-  - component: {fileID: 1414401971}
   - component: {fileID: 1414401970}
+  - component: {fileID: 1414401971}
   - component: {fileID: 1414401969}
+  - component: {fileID: 1414401973}
   m_Layer: 0
   m_Name: GameManagers
   m_TagString: Untagged
@@ -435,6 +436,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1414401973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414401968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 471b88dac51b1a74795023ca14eb9312, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _heroesTeam:
+  - {fileID: 7267869693123007862, guid: 04c029d4a198aef4094015ee51090c1d, type: 3}
+  - {fileID: 2735367058579328237, guid: 98acb5431f3cc5e49855a9144ea4a91b, type: 3}
 --- !u!1 &1618592916
 GameObject:
   m_ObjectHideFlags: 0

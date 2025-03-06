@@ -18,6 +18,8 @@ public class HelperGameManager : MonoBehaviour
 
     void CreateListOfTiles()
     {
+        _battleScenarios[HelperSceneManager.Instance.BattleNumberScenarioGetter()].SetActive(true);
+        
         if (GridManager.Instance == null)
         {
             Debug.LogError("GridManager.Instance è null!");
@@ -27,13 +29,13 @@ public class HelperGameManager : MonoBehaviour
         if (GridManager.Instance.Tiles == null)
             GridManager.Instance.Tiles = new Dictionary<Vector2, NodeBase>(); // Inizializza solo una volta
 
-        if (_battleScenarios == null || _battleScenarios.Count == 0 || _battleScenarios[0] == null)
+        if (_battleScenarios == null || _battleScenarios.Count == 0 || _battleScenarios[HelperSceneManager.Instance.BattleNumberScenarioGetter()] == null)
         {
             Debug.LogError("Nessun Battle Scenario valido!");
             return;
         }
 
-        foreach (var item in _battleScenarios[0].GetComponentsInChildren<NodeBase>())
+        foreach (var item in _battleScenarios[HelperSceneManager.Instance.BattleNumberScenarioGetter()].GetComponentsInChildren<NodeBase>())
         {
             Vector2 tileVector = item.transform.position;
             if (!GridManager.Instance.Tiles.ContainsKey(tileVector)) // Evita duplicati

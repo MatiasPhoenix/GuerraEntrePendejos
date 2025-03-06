@@ -20,7 +20,12 @@ public class SpawnManager : MonoBehaviour
     private List<HeroUnit> _heroUnits = new List<HeroUnit>();
 
 
-    void Awake() => Instance = this; 
+    void Awake()
+    {
+        Instance = this;
+        UpdateEnemyAndHeroLists();
+    }
+
 
     public void PopulateUnitLists()
     {
@@ -31,6 +36,13 @@ public class SpawnManager : MonoBehaviour
     public List<HeroUnit> GetHeroList() => _heroUnits;
     public List<EnemyUnit> GetEnemyList() => _enemyUnits;
 
+    private void UpdateEnemyAndHeroLists()
+    {   
+        _heroePrefabs.Clear();
+        _enemyPrefabs.Clear();
+        _heroePrefabs = HelperSceneManager.Instance.HeroesGetter();
+        _enemyPrefabs = HelperSceneManager.Instance.EnemieTeamGetter();
+    }
     public void ChooseTileForSpawnUnits() //Select the tile to spawn the units
     {
         if (GameManager.Instance.GameState == GameState.PlayerSpawn)
