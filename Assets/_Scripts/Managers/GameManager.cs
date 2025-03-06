@@ -56,7 +56,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log("---Inizia SpawnEnemies!");
                 GridManager.Instance.SpawnUnitsForGame();
                 SpawnManager.Instance.PopulateUnitLists();
-                ChangeState(GameState.PlayerTurn);
+                ChangeState(GameState.OrganizationPhase);
+                break;
+            case GameState.OrganizationPhase:
+            Debug.Log("---Inizia Organizzazione!");
                 break;
             case GameState.PlayerTurn:
                 Debug.Log("--------------------PLAYER TURN!--------------------");
@@ -101,6 +104,7 @@ public enum GameState
     MenuOptions,
     PlayerSpawn,
     EnemySpawn,
+    OrganizationPhase,
     PlayerTurn,
     EnemyTurn,
     PausaGame,

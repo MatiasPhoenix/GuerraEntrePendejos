@@ -88,7 +88,10 @@ public class CanvasManager : MonoBehaviour
     {
         SetActiveTurnPanel();
         _gameManagerText.text = GameManager.Instance.GameState.ToString();
-        _turnButton.gameObject.SetActive(!_turnButton.gameObject.activeSelf);
+        
+        if (GameManager.Instance.GameState == GameState.PlayerTurn|| GameManager.Instance.GameState == GameState.EnemyTurn)
+            _turnButton.gameObject.SetActive(!_turnButton.gameObject.activeSelf);
+
         Invoke("SetActiveTurnPanel", 1.2f);
         
         if(MouseManager.Instance.GetWorkgingNode() != null)
