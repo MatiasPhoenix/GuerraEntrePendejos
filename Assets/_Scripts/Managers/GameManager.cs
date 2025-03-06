@@ -43,7 +43,6 @@ public class GameManager : MonoBehaviour
                 Debug.Log("---Inizia GeneratedGrid!");
                 // GridManager.Instance.GeneratedGrid();
                 // GridManager.Instance.CreateMapGame();
-                StartCoroutine(CanvasManager.Instance.GameMessageStartOrEnd("Start"));
                 break;
             case GameState.PlayerSpawn:
                 Debug.Log("---Inizia SpawnHeroes!");
@@ -63,6 +62,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.PlayerTurn:
                 Debug.Log("--------------------PLAYER TURN!--------------------");
+                SpawnManager.Instance.FindObjectsSlotDragDrop();
                 SpawnManager.Instance.PopulateUnitLists();
                 GridManager.Instance.UpdateTiles();
                 SpawnManager.Instance.ResetMovementOfUnits();

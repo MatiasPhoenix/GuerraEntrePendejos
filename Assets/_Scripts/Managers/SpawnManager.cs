@@ -42,6 +42,7 @@ public class SpawnManager : MonoBehaviour
         _heroesChooseZone.SetActive(false);
         _chooseHeroMessage.SetActive(false);
         _ReadyForBattleButton.SetActive(false);
+        StartCoroutine(CanvasManager.Instance.GameMessageStartOrEnd("Start"));
         GameManager.Instance.ChangeState(GameState.PlayerTurn);
     }
 
@@ -128,7 +129,7 @@ public class SpawnManager : MonoBehaviour
     public void HeroScriptActivationForBattle()
     {
         List<HeroUnit> heroInGame = FindObjectsByType<HeroUnit>(FindObjectsSortMode.None).ToList();
-        
+
         // Scorre tutti gli eroi presenti nella lista
         foreach (var hero in heroInGame)
         {
@@ -144,6 +145,25 @@ public class SpawnManager : MonoBehaviour
                 if (collider2D != null)
                     collider2D.enabled = false;
 
+            }
+        }
+    }
+
+    public void FindObjectsSlotDragDrop()
+    {
+        List<HeroUnit> heroInGame = FindObjectsByType<HeroUnit>(FindObjectsSortMode.None).ToList();
+        List<NodeBase> tilesInGame = FindObjectsByType<NodeBase>(FindObjectsSortMode.None).ToList();
+
+        HashSet<Vector3> tilePositions = new HashSet<Vector3>(tilesInGame.Select(tile => tile.transform.position));
+
+        foreach (HeroUnit unit in heroInGame)
+        {
+            bool isOnTile = tilePositions.Any(tilePos => Vector3.Distance(tilePos, unit.transform.position) < 0.1f);
+
+            if (!isOnTile) // Se l'eroe non è su nessuna tile, lo distruggiamo
+            {
+                Debug.LogWarning($"❌ {unit.name} è fuori dalle tile e verrà distrutto!");
+                Destroy(unit.gameObject);
             }
         }
     }

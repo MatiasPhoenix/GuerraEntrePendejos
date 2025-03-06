@@ -107,7 +107,7 @@ public class CanvasManager : MonoBehaviour
             _startOrEndMessageText.text = "START BATTLE!";
             yield return new WaitForSeconds(3f);
             _panelStartOrEnd.gameObject.SetActive(false);
-            ShowActiveTurnPanel();
+            // ShowActiveTurnPanel();
             break;
             
             case "End":

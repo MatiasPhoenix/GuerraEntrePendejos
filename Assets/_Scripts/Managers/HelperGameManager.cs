@@ -19,7 +19,7 @@ public class HelperGameManager : MonoBehaviour
     void CreateListOfTiles()
     {
         _battleScenarios[HelperSceneManager.Instance.BattleNumberScenarioGetter()].SetActive(true);
-        
+
         if (GridManager.Instance == null)
         {
             Debug.LogError("GridManager.Instance è null!");
@@ -60,5 +60,5 @@ public class HelperGameManager : MonoBehaviour
         // }
     }
 
-
+    
 }
