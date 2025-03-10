@@ -47,14 +47,14 @@ public class GameManager : MonoBehaviour
             case GameState.PlayerSpawn:
                 Debug.Log("---Inizia SpawnHeroes!");
                 GridManager.Instance.SpawnUnitsForGame();
-                SpawnManager.Instance.PopulateUnitLists();
+                // SpawnManager.Instance.PopulateUnitLists();
                 ChangeState(GameState.EnemySpawn);
                 Debug.Log($"{SpawnManager.Instance.GetHeroList().Count} Spawned!");
                 break;
             case GameState.EnemySpawn:
                 Debug.Log("---Inizia SpawnEnemies!");
                 GridManager.Instance.SpawnUnitsForGame();
-                SpawnManager.Instance.PopulateUnitLists();
+                // SpawnManager.Instance.PopulateUnitLists();
                 ChangeState(GameState.OrganizationPhase);
                 break;
             case GameState.OrganizationPhase:
@@ -71,7 +71,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.EnemyTurn:
                 Debug.Log("--------------------ENEMY TURN!--------------------");
-                SpawnManager.Instance.PopulateUnitLists();
+                // SpawnManager.Instance.PopulateUnitLists();
                 GridManager.Instance.UpdateTiles();
                 EnemyManager.Instance.BeginEnemyTurns();
                 SpawnManager.Instance.ResetMovementOfUnits();

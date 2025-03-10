@@ -19,13 +19,15 @@ public class EnemyManager : MonoBehaviour
 
     private IEnumerator ProcessEnemyTurns()
     {
+        SpawnManager.Instance.PopulateUnitLists();
+
         foreach (var enemy in SpawnManager.Instance.GetEnemyList())
         {
             _enemyTurnFinished = false;
             _isAttacking = false;
 
             Debug.Log($"Turno del nemico: {enemy.FactionAndName()}");
-            yield return StartCoroutine(TargetHeroToCombat(enemy));
+            StartCoroutine(TargetHeroToCombat(enemy));
 
             yield return new WaitUntil(() => _enemyTurnFinished);
         }
@@ -36,20 +38,27 @@ public class EnemyManager : MonoBehaviour
     private IEnumerator TargetHeroToCombat(EnemyUnit enemy)
     {
         Dictionary<HeroUnit, List<NodeBase>> paths = new Dictionary<HeroUnit, List<NodeBase>>();
-        SpawnManager.Instance.PopulateUnitLists();
+
         foreach (HeroUnit hero in SpawnManager.Instance.GetHeroList())
         {
             var enemyLocation = GridManager.Instance.GetTileAtPosition(enemy.transform.position);
             var heroLocation = GridManager.Instance.GetTileAtPosition(hero.transform.position);
             var path = Pathfinding.FindPath(enemyLocation, heroLocation);
-            
-            if (path != null)
+
+            if (path != null && path.Count > 0)
+            {
+                Debug.Log($">>>Sono entrato nel if di {enemy.FactionAndName()} per muovere il nemico");
                 paths.Add(hero, path);
+            }
+            else
+                Debug.Log($">>>A quanto pare non succede una sega");
+
         }
 
         if (paths.Count == 0)
         {
-            Debug.Log($"Nessun bersaglio raggiungibile per {enemy.FactionAndName()}");
+            Debug.Log($"Nessun bersaglio raggiungibile per {enemy.FactionAndName()}. Provo ad avvicinarmi.");
+            StartCoroutine(MoveCloserToHero(enemy));
             _enemyTurnFinished = true;
             yield break;
         }
@@ -59,20 +68,56 @@ public class EnemyManager : MonoBehaviour
 
         Debug.Log($"---Bersaglio scelto: {_heroTarget.FactionAndName()} con percorso di {shortestPath.Value.Count} passi.");
         yield return StartCoroutine(GoToTarget(enemy));
+        // yield break;
     }
 
-    private IEnumerator GoToTarget(EnemyUnit currentEnemy)
+    private IEnumerator MoveCloserToHero(EnemyUnit enemy)
     {
+        Debug.Log($"Nemico {enemy.FactionAndName()} cerca di avvicinarmi.");
+        var enemyLocation = GridManager.Instance.GetTileAtPosition(enemy.transform.position);
+        List<NodeBase> enemyAllyTile = SpawnManager.Instance.GetEnemyList()
+            .Select(enemyAlly => GridManager.Instance.GetTileAtPosition(enemyAlly.transform.position))
+            .ToList();
+
+        NodeBase bestTarget = null;
+        int shortestDistance = int.MaxValue;
+
+        foreach (var tile in enemyAllyTile)
+        {
+            var path = Pathfinding.FindPath(enemyLocation, tile);
+            if (path != null && path.Count > 0 && path.Count < shortestDistance)
+            {
+                bestTarget = tile;
+                shortestDistance = path.Count;
+            }
+        }
+
+        if (bestTarget != null)
+        {
+            Debug.Log($"Nemico {enemy.FactionAndName()} si avvicina verso {bestTarget.Coords.Pos}.");
+            yield return StartCoroutine(GoToTarget(enemy, bestTarget));
+            yield break;
+        }
+    }
+
+
+    private IEnumerator GoToTarget(EnemyUnit currentEnemy, NodeBase targetNode = null)
+    {
+        Debug.Log($"Entro in GoToTarget di ----> {currentEnemy.FactionAndName()}");
         AnimationManager.Instance.PlayWalkAnimation(currentEnemy, true);
         _enemyTurnFinished = false;
 
-        var targetNode = GridManager.Instance.GetTileAtPosition(_heroTarget.transform.position);
+        if (targetNode == null)
+        {
+            targetNode = GridManager.Instance.GetTileAtPosition(_heroTarget.transform.position);
+        }
+
         var enemyLocation = GridManager.Instance.GetTileAtPosition(currentEnemy.transform.position);
         var path = Pathfinding.FindPath(enemyLocation, targetNode);
 
-        if (path == null)
+        if (path == null || path.Count == 0)
         {
-            Debug.Log($"Nemico {currentEnemy.FactionAndName()} non può raggiungere il bersaglio.");
+            Debug.Log($"Nemico {currentEnemy.FactionAndName()} non può raggiungere il bersaglio, movimento terminato.");
             GridManager.Instance.UpdateTiles();
             _enemyTurnFinished = true;
             yield break;
@@ -85,7 +130,7 @@ public class EnemyManager : MonoBehaviour
         {
             if (Vector2.Distance(currentEnemy.transform.position, _heroTarget.transform.position) <= currentEnemy.MaxAttack())
             {
-                yield return StartCoroutine(AttackAction(currentEnemy));
+                StartCoroutine(AttackAction(currentEnemy));
                 yield break;
             }
 
@@ -104,6 +149,7 @@ public class EnemyManager : MonoBehaviour
         _enemyTurnFinished = true;
     }
 
+
     private IEnumerator AttackAction(EnemyUnit currentEnemy)
     {
         if (_isAttacking) yield break; // Evita attacchi multipli
@@ -111,8 +157,6 @@ public class EnemyManager : MonoBehaviour
 
         EnemyFinishedMovement(currentEnemy);
         yield return StartCoroutine(BattleManager.Instance.StartBattle(currentEnemy, _heroTarget));
-
-        yield return new WaitForSeconds(0.8f);
         _enemyTurnFinished = true;
     }
 

@@ -92,9 +92,7 @@ public class DragAndDropObject : MonoBehaviour
             {
                 bool heroStillHere = heroInGame.Exists(hero => hero.transform.position == tile.transform.position);
                 if (!heroStillHere)
-                {
                     tile.ThisHero = null; // Reset solo se il vecchio eroe si è mosso
-                }
             }
         }
 

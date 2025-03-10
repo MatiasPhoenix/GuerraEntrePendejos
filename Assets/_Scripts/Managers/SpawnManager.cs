@@ -48,8 +48,6 @@ public class SpawnManager : MonoBehaviour
 
     private void UpdateEnemyAndHeroLists()
     {
-        _heroePrefabs.Clear();
-        _enemyPrefabs.Clear();
         _heroePrefabs = HelperSceneManager.Instance.HeroesGetter();
         _enemyPrefabs = HelperSceneManager.Instance.EnemieTeamGetter();
     }

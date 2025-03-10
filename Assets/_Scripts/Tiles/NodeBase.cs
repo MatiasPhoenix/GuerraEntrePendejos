@@ -196,7 +196,6 @@ namespace _Scripts.Tiles
 
         public void UnitDeselectedInNodeBase()
         {
-            Debug.Log($"Unità deselezionata");
             MouseManager.Instance.attackPhase = false;
             GridManager.Instance.UnitDeselected();
             MouseManager.Instance.CancelSelectedUnit();
