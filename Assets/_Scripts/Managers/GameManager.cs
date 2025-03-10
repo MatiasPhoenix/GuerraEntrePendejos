@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour
                 Debug.Log("--------------------ENEMY TURN!--------------------");
                 // SpawnManager.Instance.PopulateUnitLists();
                 GridManager.Instance.UpdateTiles();
-                EnemyManager.Instance.BeginEnemyTurns();
                 SpawnManager.Instance.ResetMovementOfUnits();
                 CanvasManager.Instance.ShowActiveTurnPanel();
                 BattleManager.Instance.BattleWinnerCalculator();
+                EnemyManager.Instance.BeginEnemyTurns();
                 break;
 
             default:

@@ -374,7 +374,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _faction: 1
   _unitName: TizioRosso
-  _maxHealth: 5
+  _maxHealth: 5000
   _maxMovement: 4
   _maxAttack: 1
 --- !u!114 &-3783362036536292077
