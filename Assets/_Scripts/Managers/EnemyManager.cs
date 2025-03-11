@@ -46,20 +46,13 @@ public class EnemyManager : MonoBehaviour
             var path = Pathfinding.FindPath(enemyLocation, heroLocation);
 
             if (path != null && path.Count > 0)
-            {
-                Debug.Log($">>>Sono entrato nel if di {enemy.FactionAndName()} per muovere il nemico");
                 paths.Add(hero, path);
-            }
-            else
-                Debug.Log($">>>A quanto pare non succede una sega");
-
         }
 
         if (paths.Count == 0)
         {
             Debug.Log($"Nessun bersaglio raggiungibile per {enemy.FactionAndName()}. Provo ad avvicinarmi.");
-            StartCoroutine(MoveCloserToHero(enemy));
-            _enemyTurnFinished = true;
+            yield return StartCoroutine(MoveCloserToHero(enemy)); // Aspetta la fine del movimento
             yield break;
         }
 
@@ -67,50 +60,86 @@ public class EnemyManager : MonoBehaviour
         _heroTarget = shortestPath.Key;
 
         Debug.Log($"---Bersaglio scelto: {_heroTarget.FactionAndName()} con percorso di {shortestPath.Value.Count} passi.");
-        yield return StartCoroutine(GoToTarget(enemy));
-        // yield break;
+        yield return StartCoroutine(GoToTarget(enemy)); // Aspetta la fine del movimento
     }
+
 
     private IEnumerator MoveCloserToHero(EnemyUnit enemy)
     {
-        Debug.Log($"Nemico {enemy.FactionAndName()} cerca di avvicinarmi.");
-        var enemyLocation = GridManager.Instance.GetTileAtPosition(enemy.transform.position);
-        List<NodeBase> enemyAllyTile = SpawnManager.Instance.GetEnemyList()
-            .Select(enemyAlly => GridManager.Instance.GetTileAtPosition(enemyAlly.transform.position))
-            .ToList();
+        Dictionary<HeroUnit, List<NodeBase>> paths = new Dictionary<HeroUnit, List<NodeBase>>();
 
-        NodeBase bestTarget = null;
-        int shortestDistance = int.MaxValue;
-
-        foreach (var tile in enemyAllyTile)
+        foreach (HeroUnit hero in SpawnManager.Instance.GetHeroList())
         {
-            var path = Pathfinding.FindPath(enemyLocation, tile);
-            if (path != null && path.Count > 0 && path.Count < shortestDistance)
-            {
-                bestTarget = tile;
-                shortestDistance = path.Count;
-            }
+            var enemyLocation = GridManager.Instance.GetTileAtPosition(enemy.transform.position);
+            var heroLocation = GridManager.Instance.GetTileAtPosition(hero.transform.position);
+            var path = Pathfinding.FindAlternativePath(enemyLocation, heroLocation);
+
+            if (path != null && path.Count > 0)
+                paths.Add(hero, path);
         }
 
-        if (bestTarget != null)
+        if (paths.Count == 0)
         {
-            Debug.Log($"Nemico {enemy.FactionAndName()} si avvicina verso {bestTarget.Coords.Pos}.");
-            yield return StartCoroutine(GoToTarget(enemy, bestTarget));
+            Debug.Log($"{enemy.FactionAndName()} non trova percorsi alternativi. Turno terminato.");
+            _enemyTurnFinished = true;
             yield break;
         }
+
+        var shortestPath = paths.OrderBy(p => p.Value.Count).First();
+        _heroTarget = shortestPath.Key;
+
+        Debug.Log($"---PERCORSO ALTERNATIVO, con {shortestPath.Value.Count} passi.");
+
+        AnimationManager.Instance.PlayWalkAnimation(enemy, true);
+        _enemyTurnFinished = false;
+
+        List<NodeBase> pathToFollow = shortestPath.Value;
+        pathToFollow.Reverse();
+
+        foreach (var tile in pathToFollow)
+        {
+            if (Vector2.Distance(enemy.transform.position, _heroTarget.transform.position) <= enemy.MaxAttack())
+            {
+                StartCoroutine(AttackAction(enemy));
+                yield break;
+            }
+
+            if (enemy.CurrentMovement() <= 0)
+            {
+                break; // Se il nemico ha finito il movimento, esce dal ciclo
+            }
+
+            yield return new WaitForSeconds(0.15f);
+            if (tile.Walkable == true && tile.OccupateByEnemy == false && tile.OccupateByUnit == false)
+                enemy.transform.position = tile.Coords.Pos;
+            else
+            {
+                if(enemy.transform.position.y < tile.transform.position.y && tile.Walkable)
+                    enemy.transform.position += Vector3.up;
+                else if(enemy.transform.position.y > tile.transform.position.y && tile.Walkable)
+                    enemy.transform.position += Vector3.down;
+
+                tile.RevertTile();
+                enemy.MovementModifier(false);
+                break;
+            }
+            tile.RevertTile();
+            enemy.MovementModifier(false);
+        }
+
+        EnemyFinishedMovement(enemy);
+        _enemyTurnFinished = true;
     }
+
 
 
     private IEnumerator GoToTarget(EnemyUnit currentEnemy, NodeBase targetNode = null)
     {
-        Debug.Log($"Entro in GoToTarget di ----> {currentEnemy.FactionAndName()}");
         AnimationManager.Instance.PlayWalkAnimation(currentEnemy, true);
         _enemyTurnFinished = false;
 
         if (targetNode == null)
-        {
             targetNode = GridManager.Instance.GetTileAtPosition(_heroTarget.transform.position);
-        }
 
         var enemyLocation = GridManager.Instance.GetTileAtPosition(currentEnemy.transform.position);
         var path = Pathfinding.FindPath(enemyLocation, targetNode);
@@ -140,7 +169,8 @@ public class EnemyManager : MonoBehaviour
             }
 
             yield return new WaitForSeconds(0.15f);
-            currentEnemy.transform.position = tile.Coords.Pos;
+            if (tile.Walkable)
+                currentEnemy.transform.position = tile.Coords.Pos;
             tile.RevertTile();
             currentEnemy.MovementModifier(false);
         }

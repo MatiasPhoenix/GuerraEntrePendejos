@@ -79,7 +79,63 @@ namespace Tarodev_Pathfinding._Scripts
             return null;
         }
         
-        
+        public static List<NodeBase> FindAlternativePath(NodeBase startNode, NodeBase targetNode)
+        {
+            var toSearch = new List<NodeBase>() { startNode };
+            var processed = new List<NodeBase>();
+
+            while (toSearch.Any())
+            {
+                var current = toSearch[0];
+                foreach (var t in toSearch)
+                    if (t.F < current.F || t.F == current.F && t.H < current.H) current = t;
+
+                processed.Add(current);
+                toSearch.Remove(current);
+
+                if (current == targetNode)
+                {
+                    var currentPathTile = targetNode;
+                    var path = new List<NodeBase>();
+                    var count = 100;
+                    while (currentPathTile != startNode)
+                    {
+                        if (currentPathTile.OccupateByUnit == false || currentPathTile.OccupateByEnemy == false) path.Add(currentPathTile);
+                        else return null;
+                                                 
+                        currentPathTile = currentPathTile.Connection;
+                        count--;
+                        if (count < 0) throw new Exception();
+
+                    }
+
+                    TileCount = path.Count;
+                    MouseManager.Instance.TakePathToPathfinder(path);
+                    return path;
+                }
+
+                foreach (var neighbor in current.Neighbors.Where(t => !t.MountainOrObstacle && !processed.Contains(t)))
+                {
+                    var inSearch = toSearch.Contains(neighbor);
+
+                    var costToNeighbor = current.G + current.GetDistance(neighbor);
+
+                    if (!inSearch || costToNeighbor < neighbor.G)
+                    {
+                        neighbor.SetG(costToNeighbor);
+                        neighbor.SetConnection(current);
+
+                        if (!inSearch)
+                        {
+                            neighbor.SetH(neighbor.GetDistance(targetNode));
+                            toSearch.Add(neighbor);
+                            // neighbor.SetColor(OpenColor);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
 
     }
 }

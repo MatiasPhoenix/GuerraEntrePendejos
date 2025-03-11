@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
 
     private bool _heroesWin = true;
 
-    void Start() => ChangeState(GameState.AdventureBegin);
+    void Start() => ChangeState(GameState.AdventurePhase);
 
     void Update()
     {
@@ -33,8 +33,8 @@ public class GameManager : MonoBehaviour
         GameState = newState;
         switch (newState)
         {
-            case GameState.AdventureBegin:
-                Debug.Log("---Adventure Begin");
+            case GameState.AdventurePhase:
+                Debug.Log("---Adventure Phase");
                 break;
             case GameState.MenuOptions:
                 Debug.Log("---Menu Options");
@@ -99,7 +99,7 @@ public class GameManager : MonoBehaviour
 
 public enum GameState
 {
-    AdventureBegin,
+    AdventurePhase,
     GameStart,
     MenuOptions,
     PlayerSpawn,
