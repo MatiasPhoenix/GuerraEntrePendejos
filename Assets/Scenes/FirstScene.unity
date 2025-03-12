@@ -1597,7 +1597,7 @@ Transform:
   m_GameObject: {fileID: 232379504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.801807, y: 16.02006, z: -19.936634}
+  m_LocalPosition: {x: -29.514076, y: 13.86969, z: -19.936634}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4469,6 +4469,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 788062235}
+  - component: {fileID: 788062237}
+  - component: {fileID: 788062236}
   m_Layer: 0
   m_Name: PlayerParent
   m_TagString: Untagged
@@ -4485,12 +4487,37 @@ Transform:
   m_GameObject: {fileID: 788062234}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -32.77, y: 17.99, z: -9.936635}
+  m_LocalPosition: {x: -33.18, y: 13.88, z: -9.936635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788062236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788062234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c156554d6dec6943a759e078f38cbd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &788062237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788062234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33be05646a9e6f644ba52aea7537b078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entrance: {fileID: 11400000, guid: 70de498680574804d9c414b2fe814a92, type: 2}
 --- !u!1001 &789581236
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21428,7 +21455,7 @@ Transform:
   m_GameObject: {fileID: 1364429379}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.679329, y: 8.679338, z: -19.720304}
+  m_LocalPosition: {x: -18.089329, y: 4.569339, z: -19.720304}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -23572,7 +23599,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8191258509922634157, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: _enemieTeam.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8191258509922634157, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: '_enemieTeam.Array.data[0]'
@@ -23586,6 +23613,14 @@ PrefabInstance:
       propertyPath: '_enemieTeam.Array.data[2]'
       value: 
       objectReference: {fileID: -7162944092245246733, guid: bbf6dba229c05404fbaf8bda1c02d2b5, type: 3}
+    - target: {fileID: 8191258509922634157, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
+      propertyPath: '_enemieTeam.Array.data[3]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
+    - target: {fileID: 8759977750718772287, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32451,6 +32486,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4707340099181077036, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5733804288929043492, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 788062236}
+    - target: {fileID: 5733804288929043492, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 788062236}
     - target: {fileID: 8008145255308441918, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

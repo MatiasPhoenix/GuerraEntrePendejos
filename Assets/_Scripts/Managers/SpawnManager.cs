@@ -167,5 +167,13 @@ public class SpawnManager : MonoBehaviour
     }
 
 
-
+    public void DestroyAllHeroesAndEnemiesInBattleScene()
+    {
+        List<HeroUnit> allHeroes = FindObjectsByType<HeroUnit>(FindObjectsSortMode.None).ToList();
+        List<EnemyUnit> allEnemies = FindObjectsByType<EnemyUnit>(FindObjectsSortMode.None).ToList();
+        foreach (var hero in allHeroes)
+            Destroy(hero.gameObject);
+        foreach (var enemy in allEnemies)
+            Destroy(enemy.gameObject);
+    }
 }

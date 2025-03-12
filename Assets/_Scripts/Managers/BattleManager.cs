@@ -27,6 +27,7 @@ public class BattleManager : MonoBehaviour
         else if (target.CurrentHealth() > 0)
             AnimationManager.Instance.TakeDamageAnimation(target);
 
+        BattleWinnerCalculator();
     }
 
     public IEnumerator CharacterDied(BaseUnit unit)
@@ -39,13 +40,18 @@ public class BattleManager : MonoBehaviour
 
     public void BattleWinnerCalculator()
     {
+        SpawnManager.Instance.PopulateUnitLists();
+        Debug.LogWarning($"Sono dentro il battle winner calculator-------------------");
+        
         if (SpawnManager.Instance.GetHeroList().Count == 0)
         {
             GameManager.Instance.BattleResult(true);
+            GameManager.Instance.ChangeState(GameState.FinishBattle);
             StartCoroutine(CanvasManager.Instance.GameMessageStartOrEnd("End"));
         }else if (SpawnManager.Instance.GetEnemyList().Count == 0)
         {
             GameManager.Instance.BattleResult(false);
+            GameManager.Instance.ChangeState(GameState.FinishBattle);
             StartCoroutine(CanvasManager.Instance.GameMessageStartOrEnd("End"));
         }
     }

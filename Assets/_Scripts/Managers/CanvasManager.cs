@@ -15,12 +15,14 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _attack;
     [SerializeField] private TextMeshProUGUI _moveRange;
 
+
     [Header("ENEMY INFORMATION")]
     [SerializeField] private GameObject _enemyPanel;
     [SerializeField] private TextMeshProUGUI _enemyHealthPoints;
     [SerializeField] private TextMeshProUGUI _enemyFactionName;
     [SerializeField] private TextMeshProUGUI _enemyAttack;
     [SerializeField] private TextMeshProUGUI _enemyMoveRange;
+
 
     [Header("MESSAGE & TURN CONTROL PANELS")]
     [SerializeField] private GameObject _messagePanel;
@@ -42,6 +44,14 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private Button _cancelSelectionButton;
 
 
+    [Header("RETURN PREVIOUS SCENE")]
+    [SerializeField] private Button _returnButton;
+
+
+    private void Start()
+    {
+        _returnButton.gameObject.SetActive(false);
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1)) ActionButton("Movement");
@@ -49,7 +59,7 @@ public class CanvasManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape)) ActionButton("CancelSelection");
         if (Input.GetKeyDown(KeyCode.Space))
             GameManager.Instance.ChangeState(GameState.EnemyTurn);
-        
+
     }
 
     public void SetActiveHeroPanel() => _heroPanel.gameObject.SetActive(!_heroPanel.gameObject.activeSelf);
@@ -88,13 +98,13 @@ public class CanvasManager : MonoBehaviour
     {
         SetActiveTurnPanel();
         _gameManagerText.text = GameManager.Instance.GameState.ToString();
-        
-        if (GameManager.Instance.GameState == GameState.PlayerTurn|| GameManager.Instance.GameState == GameState.EnemyTurn)
+
+        if (GameManager.Instance.GameState == GameState.PlayerTurn || GameManager.Instance.GameState == GameState.EnemyTurn)
             _turnButton.gameObject.SetActive(!_turnButton.gameObject.activeSelf);
 
         Invoke("SetActiveTurnPanel", 1.2f);
-        
-        if(MouseManager.Instance.GetWorkgingNode() != null)
+
+        if (MouseManager.Instance.GetWorkgingNode() != null)
             MouseManager.Instance.GetWorkgingNode().UnitDeselectedInNodeBase();
     }
 
@@ -103,28 +113,29 @@ public class CanvasManager : MonoBehaviour
         switch (message)
         {
             case "Start":
-            _panelStartOrEnd.gameObject.SetActive(true);
-            _startOrEndMessageText.text = "START BATTLE!";
-            yield return new WaitForSeconds(3f);
-            _panelStartOrEnd.gameObject.SetActive(false);
-            // ShowActiveTurnPanel();
-            break;
-            
-            case "End":
-            _panelStartOrEnd.gameObject.SetActive(true);
-            _startOrEndMessageText.text = "BATTLE ENDED!";
-            Debug.Log($"BATTLE ENDED!");
-            if (!GameManager.Instance.BattleVictory())
-                _subtitleStartEndMessageText.text = "Heroes victory!";
-            else
-                _subtitleStartEndMessageText.text = "Evils victory!";
+                _panelStartOrEnd.gameObject.SetActive(true);
+                _startOrEndMessageText.text = "START BATTLE!";
+                yield return new WaitForSeconds(3f);
+                _panelStartOrEnd.gameObject.SetActive(false);
+                // ShowActiveTurnPanel();
+                break;
 
-            yield return new WaitForSeconds(1f);
-            Time.timeScale = 0;
-            break;
+            case "End":
+                _panelStartOrEnd.gameObject.SetActive(true);
+                _returnButton.gameObject.SetActive(true);
+                _startOrEndMessageText.text = "BATTLE ENDED!";
+                Debug.Log($"BATTLE ENDED!");
+                if (!GameManager.Instance.BattleVictory())
+                    _subtitleStartEndMessageText.text = "Heroes victory!";
+                else
+                    _subtitleStartEndMessageText.text = "Evils victory!";
+
+                yield return new WaitForSeconds(1f);
+                // Time.timeScale = 0;
+                break;
 
             default:
-            break;
+                break;
         }
     }
 

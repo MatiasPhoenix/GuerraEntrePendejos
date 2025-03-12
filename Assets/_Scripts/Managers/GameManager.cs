@@ -11,22 +11,9 @@ public class GameManager : MonoBehaviour
 
     private bool _heroesWin = true;
 
-    void Start() => ChangeState(GameState.AdventurePhase);
-
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-            ChangeState(GameState.PlayerTurn);
-
-        if (Input.GetKeyDown(KeyCode.E))
-            ChangeState(GameState.EnemyTurn);
-    }
-
     [Header("Game State Manager")]
     public GameState GameState;
     public TextMeshProUGUI PlayerScore;
-
-    private int _playerScore = 0;
 
     public void ChangeState(GameState newState)
     {
@@ -35,6 +22,8 @@ public class GameManager : MonoBehaviour
         {
             case GameState.AdventurePhase:
                 Debug.Log("---Adventure Phase");
+                if (PlayerScore == null)
+                    PlayerScore = GameObject.FindGameObjectWithTag("WarScore").GetComponent<TextMeshProUGUI>();
                 break;
             case GameState.MenuOptions:
                 Debug.Log("---Menu Options");
@@ -58,16 +47,16 @@ public class GameManager : MonoBehaviour
                 ChangeState(GameState.OrganizationPhase);
                 break;
             case GameState.OrganizationPhase:
-            Debug.Log("---Inizia Organizzazione!");
+                Debug.Log("---Inizia Organizzazione!");
                 break;
             case GameState.PlayerTurn:
                 Debug.Log("--------------------PLAYER TURN!--------------------");
+                BattleManager.Instance.BattleWinnerCalculator();
                 SpawnManager.Instance.FindObjectsSlotDragDrop();
                 SpawnManager.Instance.PopulateUnitLists();
                 GridManager.Instance.UpdateTiles();
                 SpawnManager.Instance.ResetMovementOfUnits();
                 CanvasManager.Instance.ShowActiveTurnPanel();
-                BattleManager.Instance.BattleWinnerCalculator();
                 break;
             case GameState.EnemyTurn:
                 Debug.Log("--------------------ENEMY TURN!--------------------");
@@ -75,8 +64,12 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.UpdateTiles();
                 SpawnManager.Instance.ResetMovementOfUnits();
                 CanvasManager.Instance.ShowActiveTurnPanel();
-                BattleManager.Instance.BattleWinnerCalculator();
                 EnemyManager.Instance.BeginEnemyTurns();
+                break;
+            case GameState.FinishBattle:
+                Debug.Log("---Battle Finito!");
+                SpawnManager.Instance.DestroyAllHeroesAndEnemiesInBattleScene();
+                ChangeState(GameState.AdventurePhase);
                 break;
 
             default:
@@ -90,10 +83,23 @@ public class GameManager : MonoBehaviour
     public void EndTurn() => ChangeState(GameState.EnemyTurn);
     public void WarScoreCounter(int scoreNumber)
     {
-        _playerScore += scoreNumber;
-        PlayerScore.text = $"War Score: {_playerScore}";
-        Debug.Log($"Score: {_playerScore}");
+        int currentScore = EternalMegaManager.Instance.GetScore();
+        int newScore = currentScore + scoreNumber;
+
+        EternalMegaManager.Instance.AddScore(scoreNumber); // Aggiunge solo il punteggio guadagnato
+
+        if (PlayerScore != null)
+        {
+            PlayerScore.text = $"War Score: {newScore}";
+        }
+        else
+        {
+            Debug.LogError("⚠️ PlayerScore è null! Assicurati che sia assegnato correttamente.");
+        }
+
+        Debug.Log($"Score aggiornato: {newScore}");
     }
+
 }
 
 
@@ -107,6 +113,7 @@ public enum GameState
     OrganizationPhase,
     PlayerTurn,
     EnemyTurn,
+    FinishBattle,
     PausaGame,
 
 }
