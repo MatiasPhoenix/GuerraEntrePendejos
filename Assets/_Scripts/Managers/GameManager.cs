@@ -69,7 +69,6 @@ public class GameManager : MonoBehaviour
             case GameState.FinishBattle:
                 Debug.Log("---Battle Finito!");
                 SpawnManager.Instance.DestroyAllHeroesAndEnemiesInBattleScene();
-                ChangeState(GameState.AdventurePhase);
                 break;
 
             default:

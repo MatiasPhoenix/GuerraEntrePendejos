@@ -65,10 +65,13 @@ public class CanvasManager : MonoBehaviour
     public void SetActiveHeroPanel() => _heroPanel.gameObject.SetActive(!_heroPanel.gameObject.activeSelf);
     public void SetActiveEnemyPanel() => _enemyPanel.gameObject.SetActive(!_enemyPanel.gameObject.activeSelf);
     public bool EnemyPanelIsActive() => _enemyPanel.gameObject.activeSelf;
-
     public void SetActiveMessagePanel() => _messagePanel.gameObject.SetActive(!_messagePanel.gameObject.activeSelf);
 
-    public void SetActiveTurnPanel() => _turnPanel.gameObject.SetActive(!_turnPanel.gameObject.activeSelf);
+    public void SetActiveTurnPanel()
+    {
+        if (GameManager.Instance.GameState == GameState.PlayerTurn || GameManager.Instance.GameState == GameState.EnemyTurn)
+        _turnPanel.gameObject.SetActive(!_turnPanel.gameObject.activeSelf);
+    }
 
     public void ActionButton(string action) => MouseManager.Instance.ActiveFloodFill(action);
 
@@ -139,4 +142,11 @@ public class CanvasManager : MonoBehaviour
         }
     }
 
+    public void CloseAllWindowsAfterBattleEnd()
+    {
+        _enemyPanel.gameObject.SetActive(false);
+        _heroPanel.gameObject.SetActive(false);
+        _messagePanel.gameObject.SetActive(false);
+        _turnButton.gameObject.SetActive(false);
+    }
 }

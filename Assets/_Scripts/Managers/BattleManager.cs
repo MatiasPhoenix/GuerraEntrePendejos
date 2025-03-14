@@ -11,7 +11,6 @@ public class BattleManager : MonoBehaviour
         AnimationManager.Instance.PlayAttackAnimation(attacker);
         yield return new WaitForSeconds(0.2f);
         DamageCalculator(attacker, target);
-
     }
 
     void DamageCalculator(BaseUnit attacker, BaseUnit target)
@@ -26,32 +25,35 @@ public class BattleManager : MonoBehaviour
             StartCoroutine(CharacterDied(target));
         else if (target.CurrentHealth() > 0)
             AnimationManager.Instance.TakeDamageAnimation(target);
-
-        BattleWinnerCalculator();
     }
 
     public IEnumerator CharacterDied(BaseUnit unit)
     {
         AnimationManager.Instance.DeadAnimation(unit);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.5f);
         AnimationManager.Instance.CharacterIsDead(unit);
         Destroy(unit.gameObject);
+        SpawnManager.Instance.PopulateUnitLists();
+        
+        yield return new WaitForSeconds(1f);
+        BattleWinnerCalculator();
     }
 
     public void BattleWinnerCalculator()
     {
         SpawnManager.Instance.PopulateUnitLists();
-        Debug.LogWarning($"Sono dentro il battle winner calculator-------------------");
         
         if (SpawnManager.Instance.GetHeroList().Count == 0)
         {
-            GameManager.Instance.BattleResult(true);
+            CanvasManager.Instance.CloseAllWindowsAfterBattleEnd();
             GameManager.Instance.ChangeState(GameState.FinishBattle);
+            GameManager.Instance.BattleResult(true);
             StartCoroutine(CanvasManager.Instance.GameMessageStartOrEnd("End"));
         }else if (SpawnManager.Instance.GetEnemyList().Count == 0)
         {
-            GameManager.Instance.BattleResult(false);
+            CanvasManager.Instance.CloseAllWindowsAfterBattleEnd();
             GameManager.Instance.ChangeState(GameState.FinishBattle);
+            GameManager.Instance.BattleResult(false);
             StartCoroutine(CanvasManager.Instance.GameMessageStartOrEnd("End"));
         }
     }
