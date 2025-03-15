@@ -296,6 +296,7 @@ GameObject:
   m_Component:
   - component: {fileID: 534767245}
   - component: {fileID: 534767244}
+  - component: {fileID: 534767246}
   m_Layer: 0
   m_Name: EternalManager
   m_TagString: Untagged
@@ -330,6 +331,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &534767246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534767243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c837635abc4773040a71d9a4781ca6d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1342759181
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,8 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1414401972}
   - component: {fileID: 1414401970}
-  - component: {fileID: 1414401971}
-  - component: {fileID: 1414401969}
+  - component: {fileID: 1414401974}
   - component: {fileID: 1414401973}
   m_Layer: 0
   m_Name: GameManagers
@@ -423,21 +435,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1414401969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414401968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22b69eb609cd9ac4c86796bcab2b4564, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  HeroUnit: {fileID: 0}
-  unitMoving: 0
-  attackPhase: 0
 --- !u!114 &1414401970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -453,18 +450,6 @@ MonoBehaviour:
   MinigameIndexLocal: 0
   GameState: 0
   PlayerScore: {fileID: 1618592918}
---- !u!114 &1414401971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1414401968}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c837635abc4773040a71d9a4781ca6d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1414401972
 Transform:
   m_ObjectHideFlags: 0
@@ -496,6 +481,21 @@ MonoBehaviour:
   - {fileID: 7267869693123007862, guid: 04c029d4a198aef4094015ee51090c1d, type: 3}
   - {fileID: 2735367058579328237, guid: 98acb5431f3cc5e49855a9144ea4a91b, type: 3}
   - {fileID: 2798025415556700772, guid: 5afb54201ba395842a4bce009d8bf0d7, type: 3}
+--- !u!114 &1414401974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414401968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22b69eb609cd9ac4c86796bcab2b4564, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  HeroUnit: {fileID: 0}
+  unitMoving: 0
+  attackPhase: 0
 --- !u!1 &1618592916
 GameObject:
   m_ObjectHideFlags: 0

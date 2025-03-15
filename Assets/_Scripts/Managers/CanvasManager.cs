@@ -38,10 +38,10 @@ public class CanvasManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _subtitleStartEndMessageText;
 
 
-    [Header("PLAYER BUTTONS")]
-    [SerializeField] private Button _moveButton;
-    [SerializeField] private Button _attackButton;
-    [SerializeField] private Button _cancelSelectionButton;
+    // [Header("PLAYER BUTTONS")]
+    // [SerializeField] private Button _moveButton;
+    // [SerializeField] private Button _attackButton;
+    // [SerializeField] private Button _cancelSelectionButton;
 
 
     [Header("RETURN PREVIOUS SCENE")]

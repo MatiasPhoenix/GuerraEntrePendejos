@@ -60,5 +60,6 @@ public class HelperGameManager : MonoBehaviour
         // }
     }
 
-    
+    public void ClearTileList() => _battleScenarios.Clear();
+
 }

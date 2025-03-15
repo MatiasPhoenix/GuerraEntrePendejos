@@ -12,6 +12,7 @@ public class PlayerSpawner : MonoBehaviour
 
     public void InstantiatePlayerOnLevel()
     {
+        Debug.LogWarning($"Player Instantiated on level---🧍‍♂️");
         GameObject player = GetPlayer();
         Transform entrance = GetLevelEntrance(playerPath.levelEntrance);
 
@@ -32,6 +33,9 @@ public class PlayerSpawner : MonoBehaviour
             // No player found
             playerObject = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         }
+        
+        Debug.Log($"Player trovato: {playerObject.name}");
+        Debug.Log($"Animator presente? {playerObject.GetComponent<Animator>() != null}");
 
         return playerObject;
     }

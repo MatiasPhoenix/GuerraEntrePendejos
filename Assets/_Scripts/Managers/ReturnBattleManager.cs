@@ -1,3 +1,4 @@
+using Tarodev_Pathfinding._Scripts.Grid;
 using UnityEngine;
 
 public class ReturnBattleManager : MonoBehaviour
@@ -15,5 +16,6 @@ public class ReturnBattleManager : MonoBehaviour
     public void SetPositionForBattleReturn(Vector2 position) => _positionAfterBattle = position;
     public void ConfigObjectPosition() => gameObject.transform.position = _positionAfterBattle;
     public void ReturnToAdventurePhase() => GameManager.Instance.ChangeState(GameState.AdventurePhase);
-    
+
+
 }

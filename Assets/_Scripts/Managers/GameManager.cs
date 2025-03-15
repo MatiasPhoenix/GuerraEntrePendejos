@@ -68,6 +68,9 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.FinishBattle:
                 Debug.Log("---Battle Finito!");
+                GridManager.Instance.UpdateTiles();
+                SpawnManager.Instance.ResetMovementOfUnits();
+                CanvasManager.Instance.ShowActiveTurnPanel();
                 SpawnManager.Instance.DestroyAllHeroesAndEnemiesInBattleScene();
                 break;
 

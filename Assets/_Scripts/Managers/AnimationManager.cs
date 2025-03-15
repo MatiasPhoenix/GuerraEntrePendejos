@@ -2,9 +2,18 @@ using UnityEngine;
 
 public class AnimationManager : MonoBehaviour
 {
-    public static AnimationManager Instance;
+    public static AnimationManager Instance { get; private set; }
+
     private void Awake() => Instance = this;
 
+    private void Start()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            Debug.Log("AnimationManager Instance riassegnato dopo cambio scena!");
+        }
+    }
 
     public void PlayWalkAnimation(BaseUnit unit, bool isRunning)
     {

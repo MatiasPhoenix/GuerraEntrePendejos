@@ -54,7 +54,9 @@ namespace _Scripts.Tiles
                 Coords = coords;
                 transform.position = Coords.Pos;  // 👈 Garantiamo che `Coords.Pos` sia uguale a `transform.position`
             }
-
+            
+            if (TileForFloodFill == null)
+                TileForFloodFill = transform.Find("TileArea").gameObject;
             // Debug.Log($"✅ Inizializzazione completata per {gameObject.name}: Pos = {Coords.Pos}");
         }
 
@@ -190,6 +192,10 @@ namespace _Scripts.Tiles
         }
         public void HideFloodFill()
         {
+            Debug.LogWarning($"NodeBase: {this == null}");
+            Debug.LogWarning($"TileForFloodFill: {TileForFloodFill == null}");
+            if (TileForFloodFill == null)
+                TileForFloodFill = transform.Find("TileArea").gameObject;
             TileForFloodFill.GetComponent<SpriteRenderer>().color = _defaultTileForFloodFillColor;
             TileForFloodFill.SetActive(false);
         }

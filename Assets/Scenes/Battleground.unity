@@ -4277,6 +4277,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1683578364}
+        m_TargetAssemblyTypeName: HelperGameManager, Assembly-CSharp
+        m_MethodName: ClearTileList
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 597473240}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
         m_MethodName: LoadScene
@@ -6695,9 +6707,6 @@ MonoBehaviour:
   _panelStartOrEnd: {fileID: 397836365}
   _startOrEndMessageText: {fileID: 1831921670}
   _subtitleStartEndMessageText: {fileID: 498674894}
-  _moveButton: {fileID: 706132886}
-  _attackButton: {fileID: 1931295480}
-  _cancelSelectionButton: {fileID: 1297712227}
   _returnButton: {fileID: 597473237}
 --- !u!4 &990871509
 Transform:
@@ -10175,7 +10184,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1662987928}
   - component: {fileID: 1662987927}
-  - component: {fileID: 1662987929}
   m_Layer: 0
   m_Name: BattleManager
   m_TagString: Untagged
@@ -10210,18 +10218,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1662987929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1662987926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c837635abc4773040a71d9a4781ca6d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1683578360
 GameObject:
   m_ObjectHideFlags: 0
