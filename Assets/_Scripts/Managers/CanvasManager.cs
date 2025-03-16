@@ -57,9 +57,12 @@ public class CanvasManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha1)) ActionButton("Movement");
         if (Input.GetKeyDown(KeyCode.Alpha2)) ActionButton("Attack");
         if (Input.GetKeyDown(KeyCode.Escape)) ActionButton("CancelSelection");
-        if (Input.GetKeyDown(KeyCode.Space))
-            GameManager.Instance.ChangeState(GameState.EnemyTurn);
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (GameManager.Instance.GameState == GameState.PlayerTurn)
+                GameManager.Instance.ChangeState(GameState.EnemyTurn);
+        }
     }
 
     public void SetActiveHeroPanel() => _heroPanel.gameObject.SetActive(!_heroPanel.gameObject.activeSelf);
@@ -70,7 +73,7 @@ public class CanvasManager : MonoBehaviour
     public void SetActiveTurnPanel()
     {
         if (GameManager.Instance.GameState == GameState.PlayerTurn || GameManager.Instance.GameState == GameState.EnemyTurn)
-        _turnPanel.gameObject.SetActive(!_turnPanel.gameObject.activeSelf);
+            _turnPanel.gameObject.SetActive(!_turnPanel.gameObject.activeSelf);
     }
 
     public void ActionButton(string action) => MouseManager.Instance.ActiveFloodFill(action);
