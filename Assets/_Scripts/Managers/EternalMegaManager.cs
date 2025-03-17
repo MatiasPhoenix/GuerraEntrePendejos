@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EternalMegaManager : MonoBehaviour
@@ -6,7 +7,6 @@ public class EternalMegaManager : MonoBehaviour
 
     //WarScore
     private int _playerScore = 0;
-    private int _enemyNumberInScenario = 0;
 
     private void Awake()
     {
@@ -22,14 +22,8 @@ public class EternalMegaManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int points)
-    {
-        _playerScore += points;
-        Debug.Log($"Punteggio aggiornato: {_playerScore}");
-    }
-
     public int GetScore() => _playerScore;
-    public void SetNumberForEnemies(int number) => _enemyNumberInScenario = number;
+    public void AddScore(int points) => _playerScore += points;
 
 
 

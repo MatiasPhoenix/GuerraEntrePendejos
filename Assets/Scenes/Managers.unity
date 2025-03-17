@@ -450,6 +450,7 @@ MonoBehaviour:
   MinigameIndexLocal: 0
   GameState: 0
   PlayerScore: {fileID: 1618592918}
+  enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
 --- !u!4 &1414401972
 Transform:
   m_ObjectHideFlags: 0

@@ -192,8 +192,6 @@ namespace _Scripts.Tiles
         }
         public void HideFloodFill()
         {
-            Debug.LogWarning($"NodeBase: {this == null}");
-            Debug.LogWarning($"TileForFloodFill: {TileForFloodFill == null}");
             if (TileForFloodFill == null)
                 TileForFloodFill = transform.Find("TileArea").gameObject;
             TileForFloodFill.GetComponent<SpriteRenderer>().color = _defaultTileForFloodFillColor;

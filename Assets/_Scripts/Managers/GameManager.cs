@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using Tarodev_Pathfinding._Scripts.Grid;
 using TMPro;
 using UnityEngine;
@@ -7,7 +8,11 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
     public int MinigameIndexLocal;
 
-    private void Awake() => Instance = this;
+    private void Awake()
+    {
+        Instance = this;
+        // ChangeState(GameState.AdventurePhase);
+    }
 
     private bool _heroesWin = true;
 
@@ -21,9 +26,10 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.AdventurePhase:
-                Debug.Log("---Adventure Phase");
+                Debug.LogWarning("---Adventure Phase");
                 if (PlayerScore == null)
                     PlayerScore = GameObject.FindGameObjectWithTag("WarScore").GetComponent<TextMeshProUGUI>();
+                ReturnBattleManager.Instance.SpawnPointConfiguration();
                 break;
             case GameState.MenuOptions:
                 Debug.Log("---Menu Options");
@@ -101,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"Score aggiornato: {newScore}");
     }
+    
 
 }
 

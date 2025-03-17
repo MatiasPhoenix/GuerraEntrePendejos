@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.52
+      value: 0.514
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -102,11 +102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -29.63
+      value: -29.646
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 11.16
+      value: 11.21
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: -3907353355488715060, guid: d86bbdd8fc8e5a04bb587e9a1b327cdb, type: 3}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
@@ -167,11 +167,11 @@ PrefabInstance:
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 5291544346328080318}
+      objectReference: {fileID: 3610678567462632587}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
-      objectReference: {fileID: 695415942513323258}
+      objectReference: {fileID: 3610678567462632587}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
       value: 2
@@ -194,11 +194,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
-      value: SetEnemyTeam
+      value: StartBattle
       objectReference: {fileID: 0}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
-      value: LoadScene
+      value: OnDefeat
       objectReference: {fileID: 0}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -214,11 +214,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
-      value: EnemyTeamController, Assembly-CSharp
+      value: EnemyArmyManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[4].m_TargetAssemblyTypeName
-      value: SceneLoader, Assembly-CSharp
+      value: EnemyArmyManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8597641223793214007, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -233,9 +233,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 7069061126137126664, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6873661223484744056, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3610678567462632587}
   m_SourcePrefab: {fileID: 100100000, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
 --- !u!114 &695415942513323258 stripped
 MonoBehaviour:
@@ -258,9 +262,28 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8191258509922634157, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
   m_PrefabInstance: {fileID: 4089943266098222611}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 7468731583200393067}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d632912871a67504da64b2ad1f07f395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7468731583200393067 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6873661223484744056, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
+  m_PrefabInstance: {fileID: 4089943266098222611}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3610678567462632587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468731583200393067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cb378022425611247b113e6a8ddb5591, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyID: tizioA
+  enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}

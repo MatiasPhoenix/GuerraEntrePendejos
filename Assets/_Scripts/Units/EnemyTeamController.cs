@@ -9,13 +9,9 @@ public class EnemyTeamController : MonoBehaviour
     [Header("Enemy team for battle")]
     [SerializeField] private List<EnemyUnit> _enemieTeam = new List<EnemyUnit>();
 
-    [Header("Enemy number in scenario")]
-    [SerializeField] private int _enemyNumberInScenario = 0;
-
 
     public void SetScenarioNumber() => HelperSceneManager.Instance.BattleNumberCreate(_battleNumberScenario);
 
     public void SetEnemyTeam() => HelperSceneManager.Instance.EnemiesPartyCreate(_enemieTeam);
-    public void SetEnemyNumberInScenario() => EternalMegaManager.Instance.SetNumberForEnemies(_enemyNumberInScenario);
 
 }
