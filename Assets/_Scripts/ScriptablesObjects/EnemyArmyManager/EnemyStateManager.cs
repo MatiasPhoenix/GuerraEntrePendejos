@@ -9,7 +9,6 @@ public class EnemyStateManager : ScriptableObject
     {
         public string enemyID;
         public bool isDefeated;
-        // public Vector3 enemyPosition;
     }
 
     public List<EnemyState> enemyStates = new List<EnemyState>();

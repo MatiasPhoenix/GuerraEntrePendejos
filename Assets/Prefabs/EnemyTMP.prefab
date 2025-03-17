@@ -82,7 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.514
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_LocalRotation.w
@@ -102,11 +102,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -29.646
+      value: 20.38
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 11.21
+      value: 5.56
       objectReference: {fileID: 0}
     - target: {fileID: 2736129761976189646, guid: 35dd3fb4ba4d64845bc8225ae1796b6a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -285,5 +285,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb378022425611247b113e6a8ddb5591, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyID: tizioA
+  enemyID: tizioB
   enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+  respawnPlayerAfterBattle: {fileID: 0}
