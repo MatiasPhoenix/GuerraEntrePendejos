@@ -27,8 +27,6 @@ public class GameManager : MonoBehaviour
         {
             case GameState.AdventurePhase:
                 Debug.LogWarning("---Adventure Phase");
-                if (PlayerScore == null)
-                    PlayerScore = GameObject.FindGameObjectWithTag("WarScore").GetComponent<TextMeshProUGUI>();
                 ReturnBattleManager.Instance.SpawnPointConfiguration();
                 break;
             case GameState.MenuOptions:
@@ -95,19 +93,18 @@ public class GameManager : MonoBehaviour
         int newScore = currentScore + scoreNumber;
 
         EternalMegaManager.Instance.AddScore(scoreNumber); // Aggiunge solo il punteggio guadagnato
+        
+        if (PlayerScore == null)
+            PlayerScore = GameObject.FindGameObjectWithTag("WarScore").GetComponent<TextMeshProUGUI>();
 
         if (PlayerScore != null)
-        {
             PlayerScore.text = $"War Score: {newScore}";
-        }
         else
-        {
             Debug.LogError("⚠️ PlayerScore è null! Assicurati che sia assegnato correttamente.");
-        }
 
         Debug.Log($"Score aggiornato: {newScore}");
     }
-    
+
 
 }
 

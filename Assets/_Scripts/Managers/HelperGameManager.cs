@@ -7,6 +7,7 @@ public class HelperGameManager : MonoBehaviour
 {
     [Header("Battle Scenarios")]
     [SerializeField] private List<GameObject> _battleScenarios = new List<GameObject>();
+    [SerializeField] private List<GameObject> _scenariosDecoration = new List<GameObject>();
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class HelperGameManager : MonoBehaviour
     void CreateListOfTiles()
     {
         _battleScenarios[HelperSceneManager.Instance.BattleNumberScenarioGetter()].SetActive(true);
+        _scenariosDecoration[HelperSceneManager.Instance.BattleScenarioDecorationGetter()].SetActive(true);
 
         if (GridManager.Instance == null)
         {

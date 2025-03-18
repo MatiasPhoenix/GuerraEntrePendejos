@@ -450,7 +450,6 @@ MonoBehaviour:
   MinigameIndexLocal: 0
   GameState: 0
   PlayerScore: {fileID: 1618592918}
-  enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
 --- !u!4 &1414401972
 Transform:
   m_ObjectHideFlags: 0
@@ -509,7 +508,7 @@ GameObject:
   - component: {fileID: 1618592919}
   - component: {fileID: 1618592918}
   m_Layer: 5
-  m_Name: War Score
+  m_Name: WarScore
   m_TagString: WarScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

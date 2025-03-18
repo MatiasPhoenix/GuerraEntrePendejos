@@ -1151,6 +1151,22 @@ PrefabInstance:
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1611673968}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _battleNumberScenario
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _enemieTeam.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _battleScenarioDecoration
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7263471462187536862, guid: 40b446fe65436af469566499a2b4d8ea, type: 3}
     - target: {fileID: 8008145255308441918, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -4739,6 +4755,30 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _battleNumberScenario
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _enemieTeam.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[0]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[1]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[2]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[3]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
     - target: {fileID: 8008145255308441918, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -32508,6 +32548,10 @@ PrefabInstance:
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1611673968}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _battleNumberScenario
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8008145255308441918, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
