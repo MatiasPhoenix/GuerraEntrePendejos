@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6920364748397133484}
   - component: {fileID: 4923500622730265940}
+  - component: {fileID: 2531429456482366225}
   m_Layer: 0
   m_Name: deco_02
   m_TagString: Untagged
@@ -87,3 +88,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!68 &2531429456482366225
+EdgeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 868928658837184227}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_EdgeRadius: 0
+  m_Points:
+  - {x: 0.09164584, y: 0.3113711}
+  - {x: 0.07323551, y: 0.5300379}
+  - {x: -0.6399231, y: 0.52104473}
+  - {x: -0.6251316, y: 0.014003754}
+  - {x: 0.010752678, y: -0.0014371872}
+  - {x: 0.09434605, y: 0.21074486}
+  - {x: 0.1860609, y: 0.27306652}
+  - {x: 0.36746693, y: 0.2591915}
+  - {x: 0.404809, y: 0.16635609}
+  - {x: 0.33895683, y: 0.07558441}
+  - {x: 0.37176037, y: 0.006825447}
+  - {x: 0.54227257, y: -0.019177437}
+  - {x: 0.65767574, y: 0.027283669}
+  - {x: 0.66945744, y: 0.10009956}
+  - {x: 0.6013994, y: 0.16648197}
+  - {x: 0.5719919, y: 0.29821777}
+  - {x: 0.09183025, y: 0.305506}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0

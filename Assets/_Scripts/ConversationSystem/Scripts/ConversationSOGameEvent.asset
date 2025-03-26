@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43f7bb886b6a5143a37cee1ef8bc04a, type: 3}
-  m_Name: NPCMage
+  m_Script: {fileID: 11500000, guid: 0711c68e15fd2454c90283dcd39ff2cc, type: 3}
+  m_Name: ConversationSOGameEvent
   m_EditorClassIdentifier: 
-  fullname: NPCMage
-  portrait: {fileID: 7141514654658448321, guid: ae2e59adf58c94839a4a49d1a41c5920, type: 3}
+  _debugValue: {fileID: 11400000, guid: 084ba87f3e246da4ebbdb3a8bfed8dec, type: 2}

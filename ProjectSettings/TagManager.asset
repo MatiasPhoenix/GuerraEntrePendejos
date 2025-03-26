@@ -6,11 +6,12 @@ TagManager:
   tags:
   - WarScore
   - PlayerSpawnAfterBattle
+  - Interactable
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Wall
   - Water
   - UI
   - 
@@ -18,7 +19,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Interaction
   - 
   - 
   - 

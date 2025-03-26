@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f43f7bb886b6a5143a37cee1ef8bc04a, type: 3}
-  m_Name: NPCMage
+  m_Script: {fileID: 11500000, guid: 8342dceb5b8ea514da269fca2b50545f, type: 3}
+  m_Name: EnterInFirstScenario
   m_EditorClassIdentifier: 
-  fullname: NPCMage
-  portrait: {fileID: 7141514654658448321, guid: ae2e59adf58c94839a4a49d1a41c5920, type: 3}
