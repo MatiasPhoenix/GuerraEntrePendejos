@@ -253,18 +253,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1491003265}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
   onConversationEnded:
     m_PersistentCalls:
       m_Calls:
@@ -859,15 +847,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778993458553384995, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
       propertyPath: m_fontSize
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7778993458553384995, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
       propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 11400000, guid: c6b9792b6a76b9841ae817daab6d61b2, type: 2}
+      objectReference: {fileID: 11400000, guid: 6e09c500a63d02d4cab28ebd9b8910ad, type: 2}
     - target: {fileID: 7778993458553384995, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
       propertyPath: m_fontStyle
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7778993458553384995, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7778993458553384995, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
       propertyPath: m_isRightToLeft
@@ -883,7 +875,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7778993458553384995, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
       propertyPath: m_hasFontAssetChanged
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7778993458553384995, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
@@ -897,6 +889,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -731
       objectReference: {fileID: 0}
+    - target: {fileID: 7778993458638754173, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1802605713127080607, guid: 8781f2eec73c9a444b23826082cd3b77, type: 3}
     - target: {fileID: 8349048840437276176, guid: 550298f4ce4b74097a7f69890c536982, type: 3}
       propertyPath: m_Color.a
       value: 0.7019608

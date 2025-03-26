@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1385224633518911551}
   - component: {fileID: 8696930911999233482}
   - component: {fileID: 6109045969966149726}
+  - component: {fileID: 8119092958148677832}
   m_Layer: 11
   m_Name: InteractableObject
   m_TagString: Interactable
@@ -69,7 +70,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.2147274, y: 0.26041603}
+  m_Offset: {x: -0.2531376, y: 0.26041603}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -79,7 +80,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.89948654, y: 0.47916794}
+  m_Size: {x: 0.90631866, y: 0.47916794}
   m_EdgeRadius: 0
 --- !u!114 &8696930911999233482
 MonoBehaviour:
@@ -122,6 +123,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation: {fileID: 11400000, guid: 084ba87f3e246da4ebbdb3a8bfed8dec, type: 2}
   conversationRequestEvent: {fileID: 11400000, guid: 6bb55fdeb5da9824cb1587237443b077, type: 2}
+--- !u!114 &8119092958148677832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963391574740265517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f31b058254aef249bca16e02c5ed653, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectWithSymbol: {fileID: 4124497121634863351}
 --- !u!1 &4124497121634863351
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +153,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9008222605198074501
 Transform:
   m_ObjectHideFlags: 0
@@ -149,7 +163,7 @@ Transform:
   m_GameObject: {fileID: 4124497121634863351}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.379, y: 0.937, z: 0}
+  m_LocalPosition: {x: -0.406, y: 0.937, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

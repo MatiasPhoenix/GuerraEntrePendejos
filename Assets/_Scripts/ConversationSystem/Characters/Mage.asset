@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f43f7bb886b6a5143a37cee1ef8bc04a, type: 3}
-  m_Name: NPCArcher
+  m_Name: Mage
   m_EditorClassIdentifier: 
-  fullname: NPCArcher
-  portrait: {fileID: -8966928487586442866, guid: ae2e59adf58c94839a4a49d1a41c5920, type: 3}
+  fullname: Lady Mage
+  portrait: {fileID: 2922693987729723717, guid: 6e40dcedc59ecc741b923df783f97d18, type: 3}

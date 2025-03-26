@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DialoguePlayer&Archer
   m_EditorClassIdentifier: 
   leftCharacter: {fileID: 11400000, guid: d48373f797c456246922ba1f9715839e, type: 2}
-  rightCharacter: {fileID: 11400000, guid: dac08bbc49e3f3643b95920d38d00b2b, type: 2}
+  rightCharacter: {fileID: 11400000, guid: 069b2c8b4c75b474db1a675e45d9fa85, type: 2}
   sentences:
   - character: {fileID: 11400000, guid: d48373f797c456246922ba1f9715839e, type: 2}
     text: 'Ciao Archerino, come stai? '
