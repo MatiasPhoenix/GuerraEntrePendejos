@@ -137,7 +137,7 @@ public class CanvasManager : MonoBehaviour
                     _subtitleStartEndMessageText.text = "Evils victory!";
 
                 yield return new WaitForSeconds(1f);
-                // Time.timeScale = 0;
+                
                 break;
 
             default:

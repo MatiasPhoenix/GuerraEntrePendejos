@@ -54,7 +54,7 @@ namespace _Scripts.Tiles
                 Coords = coords;
                 transform.position = Coords.Pos;  // 👈 Garantiamo che `Coords.Pos` sia uguale a `transform.position`
             }
-            
+
             if (TileForFloodFill == null)
                 TileForFloodFill = transform.Find("TileArea").gameObject;
             // Debug.Log($"✅ Inizializzazione completata per {gameObject.name}: Pos = {Coords.Pos}");
@@ -72,7 +72,11 @@ namespace _Scripts.Tiles
                 OnHoverTile?.Invoke(this);
 
             if (MouseManager.Instance.attackPhase == true && TileForFloodFill.activeSelf && OccupateByEnemy)
+            {
+                ThisEnemy.ActiveUnitSelected();
+
                 Debug.Log($"Qui c'è un ENEMY, {ThisEnemy.FactionAndName()} -> {transform.position}, walkable -> {Walkable} e mountain -> {MountainOrObstacle}");
+            }
 
             if (ThisEnemy != null && CanvasManager.Instance.EnemyPanelIsActive() == false)
             {
@@ -83,7 +87,15 @@ namespace _Scripts.Tiles
         protected virtual void OnMouseExit()
         {
             if (ThisEnemy == null && CanvasManager.Instance.EnemyPanelIsActive() == true)
+            {
+                CancelAllEnemiesSelectedZone();
                 CanvasManager.Instance.SetActiveEnemyPanel();
+            }
+        }
+        void CancelAllEnemiesSelectedZone()
+        {
+            foreach (var enemy in SpawnManager.Instance.GetEnemyList())
+                enemy.DesactiveUnitSelected();
         }
 
         protected void OnMouseDown()
