@@ -9,10 +9,11 @@ public class EnemyArmyManager : MonoBehaviour
 
     void Start()
     {
+        respawnPlayerAfterBattle.transform.position = enemyStateManager.lastBattlePosition;
+        
         if (enemyStateManager.IsEnemyDefeated(enemyID))
             gameObject.SetActive(false);
         
-        respawnPlayerAfterBattle.transform.position = enemyStateManager.lastBattlePosition;
     }
 
     public void StartBattle() => enemyStateManager.SetLastBattlePosition(transform.position);

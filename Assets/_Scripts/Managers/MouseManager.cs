@@ -61,6 +61,7 @@ public class MouseManager : MonoBehaviour
         if (foundHero == null) { Debug.LogError("Eroe non trovato"); return; }
 
         HeroUnit = foundHero;
+        HeroUnit.ActiveUnitSelected();
         Debug.Log($"Eroe selezionato: {HeroUnit}");
 
     }
@@ -94,6 +95,8 @@ public class MouseManager : MonoBehaviour
     }
     public void CancelSelectedUnit()
     {
+           
+        HeroUnit.DesactiveUnitSelected();
         HeroUnit = null;
         _workingNode = null;
         Pathfinding.TileCount = 0;
