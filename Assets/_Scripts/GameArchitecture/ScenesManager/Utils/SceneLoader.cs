@@ -16,14 +16,14 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene()
     {
-        if (this.levelEntrance != null && this.playerPath != null)
-            this.playerPath.levelEntrance = this.levelEntrance;
+        if (levelEntrance != null && playerPath != null)
+            playerPath.levelEntrance = levelEntrance;
 
         var request = new LoadSceneRequest(
-            scene: this.sceneToLoad,
-            loadingScreen: this.loadingScreen
+            scene: sceneToLoad,
+            loadingScreen: loadingScreen
         );
 
-        this.loadSceneEvent.Raise(request);
+        loadSceneEvent.Raise(request);
     }
 }

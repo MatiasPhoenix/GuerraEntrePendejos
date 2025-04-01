@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class MemoryMinigameManager : MonoBehaviour
@@ -6,8 +7,18 @@ public class MemoryMinigameManager : MonoBehaviour
     public static MemoryMinigameManager Instance;
     public MemoryPhaseManager currentPhase = MemoryPhaseManager.ChooseCard;
     private bool _matchResult;
+    private int _internalCounterForGame = 0;
+
+    [Header("Control for end game")]
+    [SerializeField] private GameObject _buttonObject;
+    [SerializeField] private GameObject _timeFinishedGameObject;
+    [SerializeField] private TextMeshPro _timeFinished;
+    [SerializeField] private TextMeshPro _timer;
+    [SerializeField] private float _timerNumber;
+
 
     private void Awake() => Instance = this;
+    private void Update() => TimerUpdate();
 
     public void ChangePhaseMemorygame(MemoryPhaseManager phase)
     {
@@ -47,13 +58,13 @@ public class MemoryMinigameManager : MonoBehaviour
     void RemoveMatchedCards()
     {
         // Debug.Log("Rimuovendo carte");
-        StartCoroutine(DelayedRestore());   
+        StartCoroutine(DelayedRestore());
     }
 
     void ResetUnmatchedCards()
     {
         // Debug.Log("Rigirando carte");
-        StartCoroutine(DelayedRestore());   
+        StartCoroutine(DelayedRestore());
     }
 
     private IEnumerator DelayedRestore()
@@ -64,10 +75,30 @@ public class MemoryMinigameManager : MonoBehaviour
             DeckManager.Instance.RestoreCardPosition();
         else if (currentPhase == MemoryPhaseManager.RemoveCard)
             DeckManager.Instance.RemoveCardAfterMatch();
+
+        _internalCounterForGame++;
+        if (_internalCounterForGame == 5) GameOver();
+        
     }
 
     public bool IsMatch(bool matchOrNot) => _matchResult = matchOrNot;
-
+    public void GameOver()
+    {
+        ChangePhaseMemorygame(MemoryPhaseManager.GameOver);
+        _buttonObject.SetActive(true);
+        _timeFinishedGameObject.SetActive(true);
+        _timeFinished.text = $"Time finished!";
+    }
+    void TimerUpdate()
+    {
+        if (_timerNumber <= 0)
+        {
+            GameOver();
+            return;
+        }
+        _timerNumber -= Time.deltaTime;
+        _timer.text = $"Timer: {(int)_timerNumber}";
+    }
 }
 
 public enum MemoryPhaseManager
@@ -75,5 +106,6 @@ public enum MemoryPhaseManager
     ChooseCard,
     MatchOrNot,
     RemoveCard,
-    FlipCards
+    FlipCards,
+    GameOver
 }
