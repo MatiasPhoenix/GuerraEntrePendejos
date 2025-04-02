@@ -21,4 +21,4 @@ MonoBehaviour:
     isDefeated: 0
   - enemyID: tizioD
     isDefeated: 0
-  lastBattlePosition: {x: -24.47, y: 14.08, z: 0.43}
+  lastBattlePosition: {x: 0.34000015, y: 20.63, z: -0.00999999}
