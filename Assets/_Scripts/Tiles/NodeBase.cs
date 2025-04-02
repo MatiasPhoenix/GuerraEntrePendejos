@@ -143,11 +143,11 @@ namespace _Scripts.Tiles
 
         private void HandleUnitMovement()
         {
-            if (TileForFloodFill.activeSelf)
+            if (TileForFloodFill.activeSelf && MouseManager.Instance.unitCanMoving == true)
             {
                 MouseManager.Instance.MethodToMoveUnit();
             }
-            else
+            else if(MouseManager.Instance.unitCanMoving == true)
             {
                 Debug.Log($"Non puoi muovere più di {MouseManager.Instance.HeroUnit.MaxMovement()}");
                 UnitDeselectedInNodeBase();
@@ -158,7 +158,7 @@ namespace _Scripts.Tiles
         {
             GridManager.Instance.UpdateTiles();
 
-            if (OccupateByUnit)
+            if (OccupateByUnit && MouseManager.Instance.unitCanMoving == true)
             {
                 // Se c'è già un'unità selezionata, la deselezioniamo prima di selezionarne una nuova
                 if (MouseManager.Instance.HeroUnit != null)

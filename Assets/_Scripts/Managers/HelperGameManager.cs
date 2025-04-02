@@ -14,7 +14,7 @@ public class HelperGameManager : MonoBehaviour
         GoToBattle();
         CreateListOfTiles();
     }
-    public void BattleReturn() => GameManager.Instance.ChangeState(GameState.AdventurePhase);
+    public void BattleReturn() => GameManager.Instance.ChangeState(GameState.FinishBattle);
     public void GoToBattle() => GameManager.Instance.ChangeState(GameState.GameStart);
 
     void CreateListOfTiles()

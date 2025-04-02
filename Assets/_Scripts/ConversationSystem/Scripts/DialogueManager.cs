@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -15,48 +16,49 @@ public class DialogueManager : MonoBehaviour
 
     private void Start()
     {
-        this.sentences = new Queue<Sentence>();
+        sentences = new Queue<Sentence>();
     }
 
     public void StartConversation(ConversationSO conversation)
     {
-        if (this.sentences.Count != 0)
+        GameManager.Instance.ChangeState(GameState.PauseGame);
+        if (sentences.Count != 0)
             return;
 
         foreach (var sentence in conversation.sentences)
         {
-            this.sentences.Enqueue(sentence);
+            sentences.Enqueue(sentence);
         }
 
-        this.dialogueUI.StartConversation(
+        dialogueUI.StartConversation(
             leftCharacterName: conversation.leftCharacter.fullname,
             leftCharacterPortrait: conversation.leftCharacter.portrait,
             rightCharacterName: conversation.rightCharacter.fullname,
             rightCharacterPortrait: conversation.rightCharacter.portrait
         );
 
-        if (this.onConversationStarted != null)
-            this.onConversationStarted.Invoke();
+        if (onConversationStarted != null)
+            onConversationStarted.Invoke();
 
-        this.NextSentence();
+        NextSentence();
     }
 
     public void NextSentence()
     {
-        if (this.dialogueUI.IsSentenceInProcess())
+        if (dialogueUI.IsSentenceInProcess())
         {
-            this.dialogueUI.FinishDisplayingSentence();
+            dialogueUI.FinishDisplayingSentence();
             return;
         }
 
-        if (this.sentences.Count == 0)
+        if (sentences.Count == 0)
         {
-            this.EndConversation();
+            EndConversation();
             return;
         }
 
-        var sentence = this.sentences.Dequeue();
-        this.dialogueUI.DisplaySentence(
+        var sentence = sentences.Dequeue();
+        dialogueUI.DisplaySentence(
             characterName: sentence.character.fullname,
             sentenceText: sentence.text
         );
@@ -64,9 +66,11 @@ public class DialogueManager : MonoBehaviour
 
     public void EndConversation()
     {
-        this.dialogueUI.EndConversation();
+        GameManager.Instance.ChangeState(GameState.AdventurePhase);
 
-        if (this.onConversationEnded != null)
-            this.onConversationEnded.Invoke();
+        dialogueUI.EndConversation();
+
+        if (onConversationEnded != null)
+            onConversationEnded.Invoke();
     }
 }

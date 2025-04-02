@@ -7,6 +7,7 @@ public class Sentence
 
     [TextArea(2, 5)]
     public string text;
+    public bool DialogChoices;
 }
 
 [CreateAssetMenu(fileName = "NewConversation", menuName = "Scriptable Objects/Conversation/Conversation")]

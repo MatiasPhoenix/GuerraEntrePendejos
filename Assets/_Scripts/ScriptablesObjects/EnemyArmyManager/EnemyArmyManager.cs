@@ -20,6 +20,6 @@ public class EnemyArmyManager : MonoBehaviour
     public void OnDefeat()
     {
         enemyStateManager.MarkEnemyAsDefeated(enemyID);
-        gameObject.SetActive(false);
+        // gameObject.SetActive(false);
     }
 }

@@ -27,34 +27,38 @@ public class GameManager : MonoBehaviour
         {
             case GameState.AdventurePhase:
                 Debug.LogWarning("---Adventure Phase");
+                PauseGameManager();
+                break;
+            case GameState.AfterBattle:
+                Debug.LogWarning("---After Battle");
                 ReturnBattleManager.Instance.SpawnPointConfiguration();
                 break;
             case GameState.MenuOptions:
-                Debug.Log("---Menu Options");
+                Debug.LogWarning("---Menu Options");
                 break;
             case GameState.GameStart:
-                Debug.Log("---Inizia GeneratedGrid!");
+                Debug.LogWarning("---Inizia GeneratedGrid!");
                 // GridManager.Instance.GeneratedGrid();
                 // GridManager.Instance.CreateMapGame();
                 break;
             case GameState.PlayerSpawn:
-                Debug.Log("---Inizia SpawnHeroes!");
+                Debug.LogWarning("---Inizia SpawnHeroes!");
                 GridManager.Instance.SpawnUnitsForGame();
                 // SpawnManager.Instance.PopulateUnitLists();
                 ChangeState(GameState.EnemySpawn);
-                Debug.Log($"{SpawnManager.Instance.GetHeroList().Count} Spawned!");
+                Debug.LogWarning($"{SpawnManager.Instance.GetHeroList().Count} Spawned!");
                 break;
             case GameState.EnemySpawn:
-                Debug.Log("---Inizia SpawnEnemies!");
+                Debug.LogWarning("---Inizia SpawnEnemies!");
                 GridManager.Instance.SpawnUnitsForGame();
                 // SpawnManager.Instance.PopulateUnitLists();
                 ChangeState(GameState.OrganizationPhase);
                 break;
             case GameState.OrganizationPhase:
-                Debug.Log("---Inizia Organizzazione!");
+                Debug.LogWarning("---Inizia Organizzazione!");
                 break;
             case GameState.PlayerTurn:
-                Debug.Log("--------------------PLAYER TURN!--------------------");
+                Debug.LogWarning("--------------------PLAYER TURN!--------------------");
                 BattleManager.Instance.BattleWinnerCalculator();
                 SpawnManager.Instance.FindObjectsSlotDragDrop();
                 SpawnManager.Instance.PopulateUnitLists();
@@ -63,7 +67,7 @@ public class GameManager : MonoBehaviour
                 CanvasManager.Instance.ShowActiveTurnPanel();
                 break;
             case GameState.EnemyTurn:
-                Debug.Log("--------------------ENEMY TURN!--------------------");
+                Debug.LogWarning("--------------------ENEMY TURN!--------------------");
                 // SpawnManager.Instance.PopulateUnitLists();
                 GridManager.Instance.UpdateTiles();
                 SpawnManager.Instance.ResetMovementOfUnits();
@@ -71,11 +75,18 @@ public class GameManager : MonoBehaviour
                 EnemyManager.Instance.BeginEnemyTurns();
                 break;
             case GameState.FinishBattle:
-                Debug.Log("---Battle Finito!");
+                Debug.LogWarning("---Battle Finito!");
                 GridManager.Instance.UpdateTiles();
                 SpawnManager.Instance.ResetMovementOfUnits();
                 CanvasManager.Instance.ShowActiveTurnPanel();
                 SpawnManager.Instance.DestroyAllHeroesAndEnemiesInBattleScene();
+                break;
+            case GameState.MinigamePhase:
+                Debug.LogWarning("---Minigame Phase!");
+                break;
+            case GameState.PauseGame:
+                Debug.LogWarning("---Pause Game!");
+                PauseGameManager();
                 break;
 
             default:
@@ -93,7 +104,7 @@ public class GameManager : MonoBehaviour
         int newScore = currentScore + scoreNumber;
 
         EternalMegaManager.Instance.AddScore(scoreNumber); // Aggiunge solo il punteggio guadagnato
-        
+
         if (PlayerScore == null)
             PlayerScore = GameObject.FindGameObjectWithTag("WarScore").GetComponent<TextMeshProUGUI>();
 
@@ -102,9 +113,15 @@ public class GameManager : MonoBehaviour
         else
             Debug.LogError("⚠️ PlayerScore è null! Assicurati che sia assegnato correttamente.");
 
-        Debug.Log($"Score aggiornato: {newScore}");
     }
+    public void PauseGameManager()
+    {
+        var playerReference = GameObject.FindGameObjectWithTag("Player");
+        var playerScript = playerReference.GetComponent<PlayerController>();
 
+        if(GameState == GameState.PauseGame) playerScript.enabled = false;
+        else playerScript.enabled = true;
+    }
 
 }
 
@@ -112,6 +129,7 @@ public class GameManager : MonoBehaviour
 public enum GameState
 {
     AdventurePhase,
+    AfterBattle,
     GameStart,
     MenuOptions,
     PlayerSpawn,
@@ -120,6 +138,7 @@ public enum GameState
     PlayerTurn,
     EnemyTurn,
     FinishBattle,
-    PausaGame,
+    PauseGame,
+    MinigamePhase,
 
 }

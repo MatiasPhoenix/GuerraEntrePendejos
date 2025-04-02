@@ -11,7 +11,7 @@ public class MouseManager : MonoBehaviour
     public static MouseManager Instance;
     public HeroUnit HeroUnit;
     private NodeBase _workingNode;
-    public bool unitMoving = false;
+    public bool unitCanMoving = true;
     public bool attackPhase = false;
 
     private List<NodeBase> _path = new List<NodeBase>();
@@ -20,7 +20,6 @@ public class MouseManager : MonoBehaviour
 
     public void MouseInteraction(NodeBase node, HeroUnit heroUnit)
     {
-        unitMoving = true;
         _workingNode = node;
         SetHeroUnit(heroUnit);
         GridManager.Instance.UnitPresentInTile(node);
@@ -52,17 +51,20 @@ public class MouseManager : MonoBehaviour
 
     public void SetHeroUnit(HeroUnit unit)
     {
-        string targetFactionAndName = unit.FactionAndName();
+        if (unitCanMoving == true)
+        {
+            string targetFactionAndName = unit.FactionAndName();
 
-        HeroUnit[] allHeroes = FindObjectsByType<HeroUnit>(FindObjectsSortMode.None);
+            HeroUnit[] allHeroes = FindObjectsByType<HeroUnit>(FindObjectsSortMode.None);
 
-        HeroUnit foundHero = allHeroes.FirstOrDefault(hero => hero.FactionAndName() == targetFactionAndName);
+            HeroUnit foundHero = allHeroes.FirstOrDefault(hero => hero.FactionAndName() == targetFactionAndName);
 
-        if (foundHero == null) { Debug.LogError("Eroe non trovato"); return; }
+            if (foundHero == null) { Debug.LogError("Eroe non trovato"); return; }
 
-        HeroUnit = foundHero;
-        HeroUnit.ActiveUnitSelected();
-        Debug.Log($"Eroe selezionato: {HeroUnit}");
+            HeroUnit = foundHero;
+            HeroUnit.ActiveUnitSelected();
+            Debug.Log($"Eroe selezionato: {HeroUnit}");
+        }
 
     }
 
@@ -75,7 +77,7 @@ public class MouseManager : MonoBehaviour
         AreaMovementAndAttack.ResetFloodFill();
         _workingNode.RevertTile();
         _path.Reverse();
-        unitMoving = false;
+        unitCanMoving = false;
         foreach (var tile in _path)
         {
             Vector2 pos = tile.Coords.Pos;
@@ -92,10 +94,11 @@ public class MouseManager : MonoBehaviour
         _workingNode = _path.Last();
         _workingNode.SelectUnitPlusNode(_workingNode, HeroUnit);
         Pathfinding.TileCount = 0;
+        unitCanMoving = true;
     }
     public void CancelSelectedUnit()
     {
-           
+
         HeroUnit.DesactiveUnitSelected();
         HeroUnit = null;
         _workingNode = null;
