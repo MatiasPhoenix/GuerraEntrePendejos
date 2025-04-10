@@ -11,12 +11,13 @@ public class EnemyStateManager : ScriptableObject
         public bool isDefeated;
     }
 
-    public List<EnemyState> enemyStates = new List<EnemyState>();
+    public List<EnemyState> enemyStatesFirstScene = new List<EnemyState>();
+    public List<EnemyState> enemyStatesSecondScene = new List<EnemyState>();
     public Vector3 lastBattlePosition;  // Per il punto di respawn del giocatore
 
     public void MarkEnemyAsDefeated(string enemyID)
     {
-        foreach (var enemy in enemyStates)
+        foreach (var enemy in enemyStatesFirstScene)
         {
             if (enemy.enemyID == enemyID)
             {
@@ -28,7 +29,7 @@ public class EnemyStateManager : ScriptableObject
 
     public bool IsEnemyDefeated(string enemyID)
     {
-        foreach (var enemy in enemyStates)
+        foreach (var enemy in enemyStatesFirstScene)
         {
             if (enemy.enemyID == enemyID)
                 return enemy.isDefeated;

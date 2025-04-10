@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e255b813b111a4d419027e6acb3370af, type: 3}
   m_Name: EnemyStateManager
   m_EditorClassIdentifier: 
-  enemyStates:
+  enemyStatesFirstScene:
   - enemyID: tizioA
     isDefeated: 0
   - enemyID: tizioB
@@ -20,5 +20,16 @@ MonoBehaviour:
   - enemyID: tizioC
     isDefeated: 0
   - enemyID: tizioD
+    isDefeated: 0
+  enemyStatesSecondScene:
+  - enemyID: bossGarden
+    isDefeated: 0
+  - enemyID: tizioGiardinettiA
+    isDefeated: 0
+  - enemyID: tizioGiardinettiB
+    isDefeated: 0
+  - enemyID: tizioGiardinettiC
+    isDefeated: 0
+  - enemyID: tizioGiardinettiD
     isDefeated: 0
   lastBattlePosition: {x: 0.34000015, y: 20.63, z: -0.00999999}

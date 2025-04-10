@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 114
+  controlID: 116
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 115
+  controlID: 117
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 116
+  controlID: 118
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 117
+  controlID: 119
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -1133,9 +1133,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -6.7361555, y: 20.858822, z: -0.08618397}
+    m_Target: {x: -25.719374, y: 15.035941, z: 0.5230067}
     speed: 2
-    m_Value: {x: -6.7361555, y: 20.858822, z: -0.08618397}
+    m_Value: {x: -25.719374, y: 15.035941, z: 0.5230067}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1185,9 +1185,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 10
+    m_Target: 9.799336
     speed: 2
-    m_Value: 10
+    m_Value: 9.799336
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1621,7 +1621,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 161408
+  m_LastSelectedObjectID: 238574
 --- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1663,7 +1663,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 0a9bfdff92c5fdfff859feffce7afeffbaaefeff6cc5feff7a14ffff2654ffff0afbffff88bb0000a2bb0000d8c90100c42f02005a300200ce740200
+      m_ExpandedIDs: 422cffff6636ffff9e58ffffc283ffff1297ffff4cb9ffff04fbffffd8250100ca3e0100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1784,7 +1784,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Scripts/ConversationSystem/Scripts
+    - Assets/Prefabs
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1792,18 +1792,18 @@ MonoBehaviour:
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
-  m_StartGridSize: 16
+  m_StartGridSize: 80
   m_LastFolders:
-  - Assets/_Scripts/ConversationSystem/Scripts
-  m_LastFoldersGridSize: 16
+  - Assets/Prefabs
+  m_LastFoldersGridSize: 80
   m_LastProjectPath: C:\Users\Matias.R\Desktop\UnityLab\LearnWithUnity\GuerraEntrePendejos
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 111}
-    m_SelectedIDs: dec80000
-    m_LastClickedID: 51422
-    m_ExpandedIDs: 000000007cdf00007edf000080df000082df000084df000086df000088df00008adf00008cdf00008edf000090df000092df000094df000096df000098df00009adf00009cdf00009edf0000a0df0000a2df0000a4df0000a6df0000a8df0000aadf0000acdf0000aedf0000b0df0000b2df0000b4df0000
+    scrollPos: {x: 0, y: 260}
+    m_SelectedIDs: 5ae60000
+    m_LastClickedID: 58970
+    m_ExpandedIDs: 000000007edf000080df000082df000084df000086df000088df00008adf00008cdf00008edf000090df000092df000094df000096df000098df00009adf00009cdf00009edf0000a0df0000a2df0000a4df0000a6df0000a8df0000aadf0000acdf0000aedf0000b0df0000b2df0000b4df0000b6df0000b8df0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1832,7 +1832,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: ce760000
     m_LastClickedID: 30414
-    m_ExpandedIDs: 000000007cdf00007edf000080df000082df000084df000086df000088df00008adf00008cdf00008edf000090df000092df000094df000096df000098df00009adf00009cdf00009edf0000a0df0000a2df0000a4df0000a6df0000a8df0000aadf0000acdf0000aedf0000b0df0000b2df0000b4df0000
+    m_ExpandedIDs: 000000007edf000080df000082df000084df000086df000088df00008adf00008cdf00008edf000090df000092df000094df000096df000098df00009adf00009cdf00009edf0000a0df0000a2df0000a4df0000a6df0000a8df0000aadf0000acdf0000aedf0000b0df0000b2df0000b4df0000b6df0000b8df0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1887,6 +1887,6 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 16
+    m_GridSize: 80
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 169
