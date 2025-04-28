@@ -7676,7 +7676,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: enemyID
-      value: tizioGiardinettiC
+      value: tizioGiardinettiD
       objectReference: {fileID: 0}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
@@ -24734,6 +24734,14 @@ PrefabInstance:
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1574900483}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _battleNumberScenario
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _battleScenarioDecoration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6343393189320822027, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -24748,7 +24756,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8008145255308441918, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.98
+      value: 11.11
       objectReference: {fileID: 0}
     - target: {fileID: 8008145255308441918, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -28969,7 +28977,7 @@ GameObject:
   - component: {fileID: 1574900485}
   - component: {fileID: 1574900484}
   m_Layer: 0
-  m_Name: ReturnAfterBattle
+  m_Name: ReturnAfterBattleSecondScenario
   m_TagString: PlayerSpawnAfterBattle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28988,6 +28996,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+  sceneNumber: 4
 --- !u!114 &1574900485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29000,7 +29009,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33be05646a9e6f644ba52aea7537b078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entrance: {fileID: 11400000, guid: 70de498680574804d9c414b2fe814a92, type: 2}
+  entrance: {fileID: 11400000, guid: 897035e38bfc41547ba05a128477f2e2, type: 2}
 --- !u!4 &1574900486
 Transform:
   m_ObjectHideFlags: 0
@@ -33064,7 +33073,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1954742325}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a5a64658d9d8c7f419f917afcc97b138, type: 3}
   m_Name: 

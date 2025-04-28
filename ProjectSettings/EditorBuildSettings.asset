@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/ExtraScene.unity
     guid: 8943e0e9b6f760b48a3e6522a9d6a224
   - enabled: 1
-    path: Assets/Scenes/TestScene.unity
-    guid: d7dc7734926a52549b5a69c09173e5bb
-  - enabled: 1
     path: Assets/Scenes/FirstScene.unity
     guid: ebe8411da32c03d4989cacbbde917806
   - enabled: 1

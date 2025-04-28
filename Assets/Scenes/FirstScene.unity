@@ -8176,6 +8176,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entraces&Exits
       objectReference: {fileID: 0}
+    - target: {fileID: 8302835545910515352, guid: f3d39d11c1ff62b4182aa4f883e61c02, type: 3}
+      propertyPath: m_Size.y
+      value: 0.20035362
+      objectReference: {fileID: 0}
+    - target: {fileID: 8302835545910515352, guid: f3d39d11c1ff62b4182aa4f883e61c02, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.12783718
+      objectReference: {fileID: 0}
     - target: {fileID: 8437777795138775236, guid: f3d39d11c1ff62b4182aa4f883e61c02, type: 3}
       propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -26742,7 +26750,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.20800304, y: 0.020921707}
+  m_Offset: {x: 0.20800304, y: 0.12460947}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -26752,7 +26760,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.90267754, y: 0.41418457}
+  m_Size: {x: 0.90267754, y: 0.20680904}
   m_EdgeRadius: 0
 --- !u!1001 &1278754079
 PrefabInstance:
@@ -29944,6 +29952,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+  sceneName: FirstScene
 --- !u!1001 &1648987558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30680,7 +30689,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.20800304, y: 0.020921707}
+  m_Offset: {x: 0.20800304, y: 0.10529518}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -30690,7 +30699,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.90267754, y: 0.41418457}
+  m_Size: {x: 0.90267754, y: 0.24543762}
   m_EdgeRadius: 0
 --- !u!1001 &1725683804
 PrefabInstance:
