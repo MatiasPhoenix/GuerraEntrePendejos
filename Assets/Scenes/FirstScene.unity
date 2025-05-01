@@ -1319,6 +1319,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -314589219302796148, guid: 7f34c450245f5488bac2d54b5fbbae81, type: 3}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyID
+      value: tizioC
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1611673968}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1611673968}
@@ -9119,9 +9135,25 @@ PrefabInstance:
       value: 20.63
       objectReference: {fileID: 0}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyID
+      value: tizioB
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: enemyID
       value: tizioD
       objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1611673968}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -9674,9 +9706,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -3618802667364733500, guid: a05ebb241a0b14dec9a0d4bdd31301a3, type: 3}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyID
+      value: tizioD
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: enemyID
       value: tizioC
       objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1611673968}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -29952,7 +30000,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
-  sceneName: FirstScene
 --- !u!1001 &1648987558
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34032,9 +34079,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3172806557743439903, guid: d6b31bb9a1263457d996d905401b4217, type: 3}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyID
+      value: tizioA
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: enemyID
       value: tizioA
       objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1611673968}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 

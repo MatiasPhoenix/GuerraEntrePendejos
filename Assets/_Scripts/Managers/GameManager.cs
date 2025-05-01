@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using Tarodev_Pathfinding._Scripts.Grid;
 using TMPro;
 using UnityEngine;
@@ -7,12 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
     public int MinigameIndexLocal;
+    public int GameSceneNumber;
 
-    private void Awake()
-    {
-        Instance = this;
-        // ChangeState(GameState.AdventurePhase);
-    }
+    private void Awake() => Instance = this;
 
     private bool _heroesWin = true;
 
@@ -46,7 +42,6 @@ public class GameManager : MonoBehaviour
                 GridManager.Instance.SpawnUnitsForGame();
                 // SpawnManager.Instance.PopulateUnitLists();
                 ChangeState(GameState.EnemySpawn);
-                Debug.LogWarning($"{SpawnManager.Instance.GetHeroList().Count} Spawned!");
                 break;
             case GameState.EnemySpawn:
                 Debug.LogWarning("---Inizia SpawnEnemies!");
@@ -56,6 +51,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.OrganizationPhase:
                 Debug.LogWarning("---Inizia Organizzazione!");
+                Debug.Log($"GameSceneNumber:----- {GetSceneNumber()}");
                 break;
             case GameState.PlayerTurn:
                 Debug.LogWarning("--------------------PLAYER TURN!--------------------");
@@ -122,6 +118,13 @@ public class GameManager : MonoBehaviour
         if(GameState == GameState.PauseGame) playerScript.enabled = false;
         else playerScript.enabled = true;
     }
+    public void ChangeNumberScene(int sceneNumber)
+    {
+        GameSceneNumber = sceneNumber;
+        Debug.LogWarning($"Numero scene registrato: {GetSceneNumber()}");
+    }
+
+    public int GetSceneNumber() => GameSceneNumber;
 
 }
 

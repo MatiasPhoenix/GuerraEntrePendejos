@@ -41,5 +41,4 @@ MonoBehaviour:
   - enemyID: tizioGiardinettiD
     isDefeated: 0
     scenario: 4
-  lastBattlePosition: {x: -31.11, y: 11.11, z: 0.36}
-  currentScene: 3
+  lastBattlePosition: {x: -24.47, y: 14.08, z: 0.43}

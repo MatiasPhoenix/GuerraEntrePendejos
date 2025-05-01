@@ -5390,6 +5390,18 @@ PrefabInstance:
       value: bossGarden
       objectReference: {fileID: 0}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1574900483}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1574900483}
@@ -7679,6 +7691,18 @@ PrefabInstance:
       value: tizioGiardinettiD
       objectReference: {fileID: 0}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1574900483}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1574900483}
@@ -7917,6 +7941,18 @@ PrefabInstance:
       propertyPath: enemyID
       value: tizioGiardinettiA
       objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1574900483}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -24731,6 +24767,18 @@ PrefabInstance:
       value: tizioGiardinettiB
       objectReference: {fileID: 0}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1574900483}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1574900483}
@@ -24740,7 +24788,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: _battleScenarioDecoration
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6343393189320822027, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_SortingLayer
@@ -28996,7 +29044,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyStateManager: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
-  sceneNumber: 4
 --- !u!114 &1574900485
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -38307,6 +38354,18 @@ PrefabInstance:
       propertyPath: enemyID
       value: tizioGiardinettiC
       objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: EnemyStateManager
+      value: 
+      objectReference: {fileID: 11400000, guid: e5666cd69dac9034682f7883efde5774, type: 2}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: NumberScenePostBattle
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: RespawnPlayerAfterBattle
+      value: 
+      objectReference: {fileID: 1574900483}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 

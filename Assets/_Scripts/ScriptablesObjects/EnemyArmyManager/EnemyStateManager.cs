@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(fileName = "EnemyStateManager", menuName = "Game/EnemyStateManager")]
 public class EnemyStateManager : ScriptableObject
@@ -16,29 +15,23 @@ public class EnemyStateManager : ScriptableObject
     public List<EnemyState> enemyStatesFirstScene = new List<EnemyState>();
     public List<EnemyState> enemyStatesSecondScene = new List<EnemyState>();
     public Vector3 lastBattlePosition;  // Per il punto di respawn del giocatore
-    ModifyCoorForBattleReturn modifyCoorForBattleReturn;
-    public int currentScene;
 
     public void MarkEnemyAsDefeated(string enemyID)
     {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
         foreach (var enemy in enemyStatesFirstScene)
         {
-            if (currentSceneIndex == 3) currentScene = enemy.scenario;
-
             if (enemy.enemyID == enemyID)
             {
+                // GameManager.Instance.ChangeNumberScene(enemy.scenario);
                 enemy.isDefeated = true;
                 return;
             }
         }
         foreach (var enemy in enemyStatesSecondScene)
         {
-            if (currentSceneIndex == 4) currentScene = enemy.scenario;
-
             if (enemy.enemyID == enemyID)
             {
+                // GameManager.Instance.ChangeNumberScene(enemy.scenario);  
                 enemy.isDefeated = true;
                 return;
             }
@@ -60,10 +53,6 @@ public class EnemyStateManager : ScriptableObject
         return false;
     }
 
-    public void SetLastBattlePosition(Vector3 position)
-    {
-        lastBattlePosition = position;
-        // SceneManager.LoadScene(currentScene);
-    }
+    public void SetLastBattlePosition(Vector3 position) => lastBattlePosition = position;
 
 }

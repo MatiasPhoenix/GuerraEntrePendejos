@@ -45,12 +45,15 @@ public class CanvasManager : MonoBehaviour
 
 
     [Header("RETURN PREVIOUS SCENE")]
-    [SerializeField] private Button _returnButton;
-
+    [SerializeField] private Button _returnButtonSchoolScene;
+    [SerializeField] private Button _returnButtonParkScene;
 
     private void Start()
     {
-        _returnButton.gameObject.SetActive(false);
+        _returnButtonSchoolScene.gameObject.SetActive(false);
+        _returnButtonParkScene.gameObject.SetActive(false);
+
+    
     }
     private void Update()
     {
@@ -128,7 +131,7 @@ public class CanvasManager : MonoBehaviour
 
             case "End":
                 _panelStartOrEnd.gameObject.SetActive(true);
-                _returnButton.gameObject.SetActive(true);
+                ChooseSceneToLoadAfterBattle();
                 _startOrEndMessageText.text = "BATTLE ENDED!";
                 Debug.Log($"BATTLE ENDED!");
                 if (!GameManager.Instance.BattleVictory())
@@ -152,4 +155,24 @@ public class CanvasManager : MonoBehaviour
         _messagePanel.gameObject.SetActive(false);
         _turnButton.gameObject.SetActive(false);
     }
+
+    void ChooseSceneToLoadAfterBattle()
+    {   
+        Debug.Log($"Scene to load: {GameManager.Instance.GetSceneNumber()}");
+        switch (GameManager.Instance.GetSceneNumber())
+        {
+            case 3:
+                _returnButtonSchoolScene.gameObject.SetActive(true);
+                break;
+            case 4:
+                _returnButtonParkScene.gameObject.SetActive(true);
+                break;
+            default:
+                Debug.LogWarning($"⚠ No scene to load ⚠");
+                break;
+        }
+    }
+
+   
+
 }

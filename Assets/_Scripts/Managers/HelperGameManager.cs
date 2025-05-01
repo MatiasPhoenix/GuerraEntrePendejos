@@ -54,13 +54,8 @@ public class HelperGameManager : MonoBehaviour
         foreach (var tile in GridManager.Instance.Tiles.Values) tile.CacheNeighbors();
         GridManager.Instance.ActiveOnTileHoverForGame();
 
-        Debug.Log($"{GridManager.Instance.Tiles.Count} tiles");
         GameManager.Instance.ChangeState(GameState.PlayerSpawn);
 
-        // foreach (var item in GridManager.Instance.Tiles)
-        // {
-        //     Debug.Log(item.Key.x + " " + item.Key.y + " " + item.Value.Walkable);
-        // }
     }
 
     public void ClearTileList() => _battleScenarios.Clear();
