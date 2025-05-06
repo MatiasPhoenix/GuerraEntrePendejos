@@ -1339,6 +1339,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1611673968}
     - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _scenarioPostBattle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: _battleNumberScenario
       value: 1
       objectReference: {fileID: 0}
@@ -9175,6 +9179,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _scenarioPostBattle
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: _battleNumberScenario
       value: 1
       objectReference: {fileID: 0}
@@ -9732,6 +9740,10 @@ PrefabInstance:
     - target: {fileID: 3689857098253390389, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _scenarioPostBattle
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: _battleNumberScenario
@@ -34102,6 +34114,10 @@ PrefabInstance:
       propertyPath: respawnPlayerAfterBattle
       value: 
       objectReference: {fileID: 1611673968}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _scenarioPostBattle
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: _battleNumberScenario
       value: 2

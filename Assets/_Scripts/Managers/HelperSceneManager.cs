@@ -10,6 +10,7 @@ public class HelperSceneManager : MonoBehaviour
     [SerializeField] private List<HeroUnit> _heroesTeam = new List<HeroUnit>();
     private int _battleNumberScenario = 0;
     private int _battleScenarioDecoration = 0;
+    private int _numberScenarioForReturn;
     private List<EnemyUnit> _enemyTeam = new List<EnemyUnit>();
 
     public void BattleNumberCreate(int battleNumber, int scenarioDecoration)
@@ -26,6 +27,8 @@ public class HelperSceneManager : MonoBehaviour
     
     public List<HeroUnit> HeroesGetter() => _heroesTeam;
     
+    public void ConfigNumberScenarioForBattleReturn(int number) => _numberScenarioForReturn = number;
+    public int GetNumberScenarioForBattleReturn() => _numberScenarioForReturn;
 
 
 }

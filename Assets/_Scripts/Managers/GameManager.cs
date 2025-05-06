@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.OrganizationPhase:
                 Debug.LogWarning("---Inizia Organizzazione!");
-                Debug.Log($"GameSceneNumber:----- {GetSceneNumber()}");
+                ChangeNumberScene();
+                Debug.Log($"GameSceneNumber:----- {HelperSceneManager.Instance.GetNumberScenarioForBattleReturn()}");
                 break;
             case GameState.PlayerTurn:
                 Debug.LogWarning("--------------------PLAYER TURN!--------------------");
@@ -118,10 +119,9 @@ public class GameManager : MonoBehaviour
         if(GameState == GameState.PauseGame) playerScript.enabled = false;
         else playerScript.enabled = true;
     }
-    public void ChangeNumberScene(int sceneNumber)
+    public void ChangeNumberScene()
     {
-        GameSceneNumber = sceneNumber;
-        Debug.LogWarning($"Numero scene registrato: {GetSceneNumber()}");
+        GameSceneNumber = HelperSceneManager.Instance.GetNumberScenarioForBattleReturn();
     }
 
     public int GetSceneNumber() => GameSceneNumber;

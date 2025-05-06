@@ -6,7 +6,6 @@ public class EnemyArmyManager : MonoBehaviour
     public string EnemyID;
     public EnemyStateManager EnemyStateManager;
     public GameObject RespawnPlayerAfterBattle;
-    public int NumberScenePostBattle;
 
     void Start()
     {        
@@ -18,10 +17,8 @@ public class EnemyArmyManager : MonoBehaviour
     }
 
     public void StartBattle() => EnemyStateManager.SetLastBattlePosition(transform.position);
-    public void OnDefeat()
-    {
-        EnemyStateManager.MarkEnemyAsDefeated(EnemyID);
-        // GameManager.Instance.ChangeNumberScene(NumberScenePostBattle);
-    }
+    public void OnDefeat() => EnemyStateManager.MarkEnemyAsDefeated(EnemyID);
+
+
    
 }

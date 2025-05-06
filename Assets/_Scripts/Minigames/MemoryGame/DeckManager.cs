@@ -68,7 +68,9 @@ public class DeckManager : MonoBehaviour
         }
     }
 
-    void CreateCards()
+  
+
+    void CreateCards() //Metodo per creare le carte
     {
         for (int i = 0; i < 5; i++)
         {

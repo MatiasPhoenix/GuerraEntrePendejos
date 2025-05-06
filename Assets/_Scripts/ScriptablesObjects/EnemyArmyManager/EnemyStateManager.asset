@@ -15,30 +15,21 @@ MonoBehaviour:
   enemyStatesFirstScene:
   - enemyID: tizioA
     isDefeated: 0
-    scenario: 3
   - enemyID: tizioB
     isDefeated: 0
-    scenario: 3
   - enemyID: tizioC
     isDefeated: 0
-    scenario: 3
   - enemyID: tizioD
     isDefeated: 0
-    scenario: 3
   enemyStatesSecondScene:
   - enemyID: bossGarden
     isDefeated: 0
-    scenario: 4
   - enemyID: tizioGiardinettiA
     isDefeated: 0
-    scenario: 4
   - enemyID: tizioGiardinettiB
     isDefeated: 0
-    scenario: 4
   - enemyID: tizioGiardinettiC
     isDefeated: 0
-    scenario: 4
   - enemyID: tizioGiardinettiD
     isDefeated: 0
-    scenario: 4
-  lastBattlePosition: {x: -24.47, y: 14.08, z: 0.43}
+  lastBattlePosition: {x: -17.1, y: 19.89, z: -0.36}

@@ -9,7 +9,6 @@ public class EnemyStateManager : ScriptableObject
     {
         public string enemyID;
         public bool isDefeated;
-        public int scenario;
     }
 
     public List<EnemyState> enemyStatesFirstScene = new List<EnemyState>();
@@ -22,7 +21,6 @@ public class EnemyStateManager : ScriptableObject
         {
             if (enemy.enemyID == enemyID)
             {
-                // GameManager.Instance.ChangeNumberScene(enemy.scenario);
                 enemy.isDefeated = true;
                 return;
             }
@@ -31,7 +29,6 @@ public class EnemyStateManager : ScriptableObject
         {
             if (enemy.enemyID == enemyID)
             {
-                // GameManager.Instance.ChangeNumberScene(enemy.scenario);  
                 enemy.isDefeated = true;
                 return;
             }
