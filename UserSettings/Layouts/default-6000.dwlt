@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 2560
     height: 1357
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 332}
   m_MaxSize: {x: 10000, y: 10000}
@@ -118,7 +118,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 1
-  controlID: 116
+  controlID: 66
   draggingID: 0
 --- !u!114 &6
 MonoBehaviour:
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 117
+  controlID: 67
   draggingID: 0
 --- !u!114 &7
 MonoBehaviour:
@@ -254,7 +254,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 118
+  controlID: 68
   draggingID: 0
 --- !u!114 &11
 MonoBehaviour:
@@ -280,7 +280,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 50}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 119
+  controlID: 69
   draggingID: 0
 --- !u!114 &12
 MonoBehaviour:
@@ -1133,9 +1133,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: -25.065075, y: 14.545795, z: 0.35801354}
+    m_Target: {x: -17.59, y: 12.55, z: -0.08618397}
     speed: 2
-    m_Value: {x: -25.065075, y: 14.545795, z: 0.35801354}
+    m_Value: {x: -17.59, y: 12.55, z: -0.08618397}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1185,9 +1185,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1.1578164
+    m_Target: 10
     speed: 2
-    m_Value: 1.1578164
+    m_Value: 10
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1621,7 +1621,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -58752
+  m_LastSelectedObjectID: -17786
 --- !u!114 &24
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1663,7 +1663,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 841affff8c1affff961affffaa1affffbe1affffd21afffff41afffff81affff361bfffffe1bffff041cffff0c1cffffd21cffff821fffffa83fffff00d8ffff0afbffff942f0100807a0100c07f0100
+      m_ExpandedIDs: 9c93fdff72d5fdff3ce5fdff704ffeffb6d6feff2cdcfeff56defeff0ce0fefface3feffdce5feffd8e7feff927cffff4ab9ffffacbdffff5abfffff20c5ffff42c6fffffee7ffff0afbffff34fa000058650100
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -1784,7 +1784,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Scripts/ScriptablesObjects/EnemyArmyManager
+    - Assets/_Scripts/ScriptablesObjects/SO - Scenes
     m_Globs: []
     m_ProductIds: 
     m_AnyWithAssetOrigin: 0
@@ -1792,17 +1792,17 @@ MonoBehaviour:
     m_ImportLogFlags: 0
     m_FilterByTypeIntersection: 0
   m_ViewMode: 1
-  m_StartGridSize: 67
+  m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_Scripts/ScriptablesObjects/EnemyArmyManager
-  m_LastFoldersGridSize: 67
+  - Assets/_Scripts/ScriptablesObjects/SO - Scenes
+  m_LastFoldersGridSize: 16
   m_LastProjectPath: C:\Users\Matias.R\Desktop\UnityLab\LearnWithUnity\GuerraEntrePendejos
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 302}
-    m_SelectedIDs: 46e60000
-    m_LastClickedID: 58950
+    scrollPos: {x: 0, y: 362}
+    m_SelectedIDs: 4ee60000
+    m_LastClickedID: 58958
     m_ExpandedIDs: 0000000080df000082df000084df000086df000088df00008adf00008cdf00008edf000090df000092df000094df000096df000098df00009adf00009cdf00009edf0000a0df0000a2df0000a4df0000a6df0000a8df0000aadf0000acdf0000aedf0000b0df0000b2df0000b4df0000b6df0000b8df0000badf0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1887,6 +1887,6 @@ MonoBehaviour:
       m_ResourceFile: 
     m_NewAssetIndexInList: -1
     m_ScrollPosition: {x: 0, y: 0}
-    m_GridSize: 67
+    m_GridSize: 16
   m_SkipHiddenPackages: 0
   m_DirectoriesAreaWidth: 169

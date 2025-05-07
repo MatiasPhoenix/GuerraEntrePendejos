@@ -49,7 +49,7 @@ public class SpawnManager : MonoBehaviour
     private void UpdateEnemyAndHeroLists()
     {
         _heroePrefabs = HelperSceneManager.Instance.HeroesGetter();
-        _enemyPrefabs = HelperSceneManager.Instance.EnemieTeamGetter();
+        _enemyPrefabs = HelperSceneManager.Instance.EnemyTeamGetter();
     }
     public void ChooseTileForSpawnUnits() //Select the tile to spawn the units
     {

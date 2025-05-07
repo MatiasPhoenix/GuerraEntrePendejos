@@ -21,7 +21,7 @@ public class HelperSceneManager : MonoBehaviour
     public int BattleNumberScenarioGetter() => _battleNumberScenario;
     public int BattleScenarioDecorationGetter() => _battleScenarioDecoration;
 
-    public List<EnemyUnit> EnemieTeamGetter() => _enemyTeam;
+    public List<EnemyUnit> EnemyTeamGetter() => _enemyTeam;
     public void EnemiesPartyCreate(List<EnemyUnit> EnemiesCurrentBattle) => _enemyTeam = EnemiesCurrentBattle;
     public void EmptyEnemCurrentBattle() => _enemyTeam.Clear();
     

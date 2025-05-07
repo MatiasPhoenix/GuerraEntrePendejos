@@ -5404,7 +5404,7 @@ PrefabInstance:
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: RespawnPlayerAfterBattle
       value: 
-      objectReference: {fileID: 1574900483}
+      objectReference: {fileID: 7223900360619471096}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -7713,7 +7713,7 @@ PrefabInstance:
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: RespawnPlayerAfterBattle
       value: 
-      objectReference: {fileID: 1574900483}
+      objectReference: {fileID: 7223900360619471096}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -7972,7 +7972,7 @@ PrefabInstance:
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: RespawnPlayerAfterBattle
       value: 
-      objectReference: {fileID: 1574900483}
+      objectReference: {fileID: 7223900360619471096}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -24805,7 +24805,7 @@ PrefabInstance:
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: RespawnPlayerAfterBattle
       value: 
-      objectReference: {fileID: 1574900483}
+      objectReference: {fileID: 7223900360619471096}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -38401,7 +38401,7 @@ PrefabInstance:
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: RespawnPlayerAfterBattle
       value: 
-      objectReference: {fileID: 1574900483}
+      objectReference: {fileID: 7223900360619471096}
     - target: {fileID: 3610678567462632587, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: respawnPlayerAfterBattle
       value: 
@@ -39144,6 +39144,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
+--- !u!1 &7223900360619471096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2149671260813304699, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
+  m_PrefabInstance: {fileID: 7223900360619471095}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
