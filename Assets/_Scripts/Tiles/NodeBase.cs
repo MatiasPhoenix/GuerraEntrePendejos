@@ -117,7 +117,7 @@ namespace _Scripts.Tiles
                         HandleUnitSelection();
                         return;
                     }
-
+                    if(TileForFloodFill.activeSelf)
                     HandleUnitMovement();
                 }
                 else

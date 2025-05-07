@@ -63,7 +63,7 @@ public class CanvasManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (GameManager.Instance.GameState == GameState.PlayerTurn)
+            if (GameManager.Instance.GameState == GameState.PlayerTurn && AnimationManager.Instance.CheckAnimation() == false)
                 GameManager.Instance.ChangeState(GameState.EnemyTurn);
         }
     }

@@ -14,6 +14,7 @@ public class AnimationManager : MonoBehaviour
             Debug.Log("AnimationManager Instance riassegnato dopo cambio scena!");
         }
     }
+    private BaseUnit _heroSelected;
 
     public void PlayWalkAnimation(BaseUnit unit, bool isRunning)
     {
@@ -43,10 +44,18 @@ public class AnimationManager : MonoBehaviour
 
     Animator FindAnimatorComponent(BaseUnit unit)
     {
+        _heroSelected = unit;
+
         Transform unitRoot = unit.transform.GetChild(0).Find("UnitRoot");
         if (unitRoot == null) return null;
 
         Animator anim = unitRoot.GetComponent<Animator>();
         return anim;
+    }
+
+    public bool CheckAnimation()
+    {
+        Animator anim = FindAnimatorComponent(_heroSelected);
+        return anim.GetBool("1_Move");
     }
 }
