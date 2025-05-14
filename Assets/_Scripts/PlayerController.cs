@@ -1,3 +1,5 @@
+using System.Xml;
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,32 +12,49 @@ public class PlayerController : MonoBehaviour
 
     void Start() => rb = GetComponent<Rigidbody2D>();
 
-    void FixedUpdate()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space)) AnimatorControll();
-        
-            
-        
-        // Input movimento
         moveInput.x = Input.GetAxisRaw("Horizontal");
         moveInput.y = Input.GetAxisRaw("Vertical");
-        moveInput.Normalize(); // Evita velocità maggiore in diagonale
+        moveInput.Normalize();
 
         if (moveInput.x > 0)
-            transform.localScale = new Vector3(-1, 1, 1); // Guarda a sinistra
+            transform.localScale = new Vector3(-1, 1, 1);
         else if (moveInput.x < 0)
-            transform.localScale = new Vector3(1, 1, 1);  // Guarda a destra
+            transform.localScale = new Vector3(1, 1, 1);
 
-
-        // Se il personaggio si muove, attiva animazione, altrimenti la ferma
-        if (AnimationManager.Instance != null) // Controlla se il singleton esiste
+        if (AnimationManager.Instance != null)
         {
-
             bool isWalking = moveInput != Vector2.zero;
             AnimationManager.Instance.PlayWalkAnimation(thisBaseUnit, isWalking);
         }
-        rb.linearVelocity = moveInput * speed;
+
+        transform.position += (Vector3)(moveInput * speed * Time.deltaTime);
     }
+
+    // void FixedUpdate()
+    // {
+
+    //     // Input movimento
+    //     moveInput.x = Input.GetAxisRaw("Horizontal");
+    //     moveInput.y = Input.GetAxisRaw("Vertical");
+    //     moveInput.Normalize(); // Evita velocità maggiore in diagonale
+
+    //     if (moveInput.x > 0)
+    //         transform.localScale = new Vector3(-1, 1, 1); // Guarda a sinistra
+    //     else if (moveInput.x < 0)
+    //         transform.localScale = new Vector3(1, 1, 1);  // Guarda a destra
+
+
+    //     // Se il personaggio si muove, attiva animazione, altrimenti la ferma
+    //     if (AnimationManager.Instance != null) // Controlla se il singleton esiste
+    //     {
+
+    //         bool isWalking = moveInput != Vector2.zero;
+    //         AnimationManager.Instance.PlayWalkAnimation(thisBaseUnit, isWalking);
+    //     }
+    //     rb.linearVelocity = moveInput * speed;
+    // }
 
     void AnimatorControll()
     {
@@ -43,7 +62,7 @@ public class PlayerController : MonoBehaviour
             Debug.LogWarning($"Controlliamo è null?: {AnimationManager.Instance == null}");
         else
             Debug.LogWarning($"StoCazzoDiAnimatorManager è null?: {AnimationManager.Instance == null}");
-            
+
     }
 
 }

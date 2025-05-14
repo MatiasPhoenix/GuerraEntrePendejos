@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour
             _enemyTurnFinished = false;
             _isAttacking = false;
 
-            Debug.Log($"Turno del nemico: {enemy.FactionAndName()}");
+            // Debug.Log($"Turno del nemico: {enemy.FactionAndName()}");
             StartCoroutine(TargetHeroToCombat(enemy));
 
             yield return new WaitUntil(() => _enemyTurnFinished);
@@ -51,7 +51,7 @@ public class EnemyManager : MonoBehaviour
 
         if (paths.Count == 0)
         {
-            Debug.Log($"Nessun bersaglio raggiungibile per {enemy.FactionAndName()}. Provo ad avvicinarmi.");
+            // Debug.Log($"Nessun bersaglio raggiungibile per {enemy.FactionAndName()}. Provo ad avvicinarmi.");
             yield return StartCoroutine(MoveCloserToHero(enemy)); // Aspetta la fine del movimento
             yield break;
         }
@@ -59,7 +59,7 @@ public class EnemyManager : MonoBehaviour
         var shortestPath = paths.OrderBy(p => p.Value.Count).First();
         _heroTarget = shortestPath.Key;
 
-        Debug.Log($"---Bersaglio scelto: {_heroTarget.FactionAndName()} con percorso di {shortestPath.Value.Count} passi.");
+        // Debug.Log($"---Bersaglio scelto: {_heroTarget.FactionAndName()} con percorso di {shortestPath.Value.Count} passi.");
         yield return StartCoroutine(GoToTarget(enemy)); // Aspetta la fine del movimento
     }
 
@@ -80,7 +80,7 @@ public class EnemyManager : MonoBehaviour
 
         if (paths.Count == 0)
         {
-            Debug.Log($"{enemy.FactionAndName()} non trova percorsi alternativi. Turno terminato.");
+            // Debug.Log($"{enemy.FactionAndName()} non trova percorsi alternativi. Turno terminato.");
             _enemyTurnFinished = true;
             yield break;
         }
@@ -88,7 +88,7 @@ public class EnemyManager : MonoBehaviour
         var shortestPath = paths.OrderBy(p => p.Value.Count).First();
         _heroTarget = shortestPath.Key;
 
-        Debug.Log($"---PERCORSO ALTERNATIVO, con {shortestPath.Value.Count} passi.");
+        // Debug.Log($"---PERCORSO ALTERNATIVO, con {shortestPath.Value.Count} passi.");
 
         AnimationManager.Instance.PlayWalkAnimation(enemy, true);
         _enemyTurnFinished = false;
@@ -146,7 +146,7 @@ public class EnemyManager : MonoBehaviour
 
         if (path == null || path.Count == 0)
         {
-            Debug.Log($"Nemico {currentEnemy.FactionAndName()} non può raggiungere il bersaglio, movimento terminato.");
+            // Debug.Log($"Nemico {currentEnemy.FactionAndName()} non può raggiungere il bersaglio, movimento terminato.");
             GridManager.Instance.UpdateTiles();
             _enemyTurnFinished = true;
             yield break;
@@ -193,7 +193,7 @@ public class EnemyManager : MonoBehaviour
     private void EnemyFinishedMovement(EnemyUnit currentEnemy)
     {
         AnimationManager.Instance.PlayWalkAnimation(currentEnemy, false);
-        Debug.Log($"{currentEnemy.FactionAndName()} ha terminato il movimento o ha raggiunto il bersaglio.");
+        // Debug.Log($"{currentEnemy.FactionAndName()} ha terminato il movimento o ha raggiunto il bersaglio.");
         GridManager.Instance.UpdateTiles();
     }
 }

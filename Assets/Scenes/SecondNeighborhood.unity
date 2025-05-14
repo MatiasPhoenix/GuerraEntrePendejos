@@ -5413,6 +5413,42 @@ PrefabInstance:
       propertyPath: _scenarioPostBattle
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _enemieTeam.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[0]'
+      value: 
+      objectReference: {fileID: -7162944092245246733, guid: bbf6dba229c05404fbaf8bda1c02d2b5, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[1]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[2]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[3]'
+      value: 
+      objectReference: {fileID: 2365868991972797969, guid: 669ce4f4815b8f940a1731a0feb14fa9, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[4]'
+      value: 
+      objectReference: {fileID: 2365868991972797969, guid: 669ce4f4815b8f940a1731a0feb14fa9, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[5]'
+      value: 
+      objectReference: {fileID: 810193777580041814, guid: a50a680875dd2a44eb2200b6fbaf8645, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[6]'
+      value: 
+      objectReference: {fileID: -3907353355488715060, guid: d86bbdd8fc8e5a04bb587e9a1b327cdb, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[7]'
+      value: 
+      objectReference: {fileID: -3907353355488715060, guid: d86bbdd8fc8e5a04bb587e9a1b327cdb, type: 3}
     - target: {fileID: 6343393189320822027, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -7722,6 +7758,22 @@ PrefabInstance:
       propertyPath: _scenarioPostBattle
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _enemieTeam.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7263471462187536862, guid: 40b446fe65436af469566499a2b4d8ea, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[1]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7263471462187536862, guid: 40b446fe65436af469566499a2b4d8ea, type: 3}
     - target: {fileID: 6343393189320822027, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -7981,6 +8033,22 @@ PrefabInstance:
       propertyPath: _scenarioPostBattle
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _enemieTeam.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2365868991972797969, guid: 669ce4f4815b8f940a1731a0feb14fa9, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2365868991972797969, guid: 669ce4f4815b8f940a1731a0feb14fa9, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[2]'
+      value: 
+      objectReference: {fileID: -6956993452415097762, guid: 83cc9c292f7a9a14b912ed5b445924e1, type: 3}
     - target: {fileID: 6343393189320822027, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -24819,9 +24887,21 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _enemieTeam.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: _battleScenarioDecoration
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[2]'
+      value: 
+      objectReference: {fileID: 7263471462187536862, guid: 40b446fe65436af469566499a2b4d8ea, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[3]'
+      value: 
+      objectReference: {fileID: 7263471462187536862, guid: 40b446fe65436af469566499a2b4d8ea, type: 3}
     - target: {fileID: 6343393189320822027, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -38410,6 +38490,22 @@ PrefabInstance:
       propertyPath: _scenarioPostBattle
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: _enemieTeam.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[0]'
+      value: 
+      objectReference: {fileID: -3907353355488715060, guid: d86bbdd8fc8e5a04bb587e9a1b327cdb, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2365868991972797969, guid: 669ce4f4815b8f940a1731a0feb14fa9, type: 3}
+    - target: {fileID: 5291544346328080318, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
+      propertyPath: '_enemieTeam.Array.data[2]'
+      value: 
+      objectReference: {fileID: -3907353355488715060, guid: d86bbdd8fc8e5a04bb587e9a1b327cdb, type: 3}
     - target: {fileID: 6343393189320822027, guid: 520d83e0ca2093b40be6587837035fc5, type: 3}
       propertyPath: m_SortingLayer
       value: 2
@@ -39066,6 +39162,14 @@ PrefabInstance:
     - target: {fileID: 58501152571967152, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
       propertyPath: m_Name
       value: LevelInitializer
+      objectReference: {fileID: 0}
+    - target: {fileID: 58501152571967152, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2149671260813304699, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7295758042925376657, guid: 08e0fd6f1a0fa2649b40344cd47c23fb, type: 3}
       propertyPath: m_LocalPosition.x

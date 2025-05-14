@@ -5,7 +5,7 @@ public class EternalMegaManager : MonoBehaviour
 {
     public static EternalMegaManager Instance;
 
-    //WarScore
+    //WarScore & objectives/mission manager
     private int _playerScore = 0;
 
     private void Awake()

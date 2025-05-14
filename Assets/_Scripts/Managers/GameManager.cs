@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
             case GameState.OrganizationPhase:
                 Debug.LogWarning("---Inizia Organizzazione!");
                 ChangeNumberScene();
-                Debug.Log($"GameSceneNumber:----- {HelperSceneManager.Instance.GetNumberScenarioForBattleReturn()}");
                 break;
             case GameState.PlayerTurn:
                 Debug.LogWarning("--------------------PLAYER TURN!--------------------");

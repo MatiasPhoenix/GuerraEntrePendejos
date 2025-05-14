@@ -47,7 +47,7 @@ namespace _Scripts.Tiles
             if (coords == null)
             {
                 Coords = new SquareCoords { Pos = transform.position };  // 👈 Se `coords` è NULL, lo inizializziamo
-                Debug.LogWarning($"⚠️ Coords era NULL, assegnato da transform.position: {Coords.Pos}");
+                // Debug.LogWarning($"⚠️ Coords era NULL, assegnato da transform.position: {Coords.Pos}");
             }
             else
             {
@@ -75,7 +75,7 @@ namespace _Scripts.Tiles
             {
                 ThisEnemy.ActiveUnitSelected();
 
-                Debug.Log($"Qui c'è un ENEMY, {ThisEnemy.FactionAndName()} -> {transform.position}, walkable -> {Walkable} e mountain -> {MountainOrObstacle}");
+                // Debug.Log($"Qui c'è un ENEMY, {ThisEnemy.FactionAndName()} -> {transform.position}, walkable -> {Walkable} e mountain -> {MountainOrObstacle}");
             }
 
             if (ThisEnemy != null && CanvasManager.Instance.EnemyPanelIsActive() == false)
@@ -149,7 +149,7 @@ namespace _Scripts.Tiles
             }
             else if(MouseManager.Instance.unitCanMoving == true)
             {
-                Debug.Log($"Non puoi muovere più di {MouseManager.Instance.HeroUnit.MaxMovement()}");
+                // Debug.Log($"Non puoi muovere più di {MouseManager.Instance.HeroUnit.MaxMovement()}");
                 UnitDeselectedInNodeBase();
             }
         }
@@ -176,7 +176,7 @@ namespace _Scripts.Tiles
             // Debug nemico
             if (OccupateByEnemy)
             {
-                Debug.Log($"Nemico trovato: {ThisEnemy.FactionAndName()} -> {transform.position}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
+                // Debug.Log($"Nemico trovato: {ThisEnemy.FactionAndName()} -> {transform.position}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
             }
         }
 
@@ -185,7 +185,7 @@ namespace _Scripts.Tiles
         {
             if (!OccupateByUnit && !OccupateByEnemy)
             {
-                Debug.Log($"TILE VUOTO -> {transform.position}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
+                // Debug.Log($"TILE VUOTO -> {transform.position}, walkable -> {Walkable}, ostacolo -> {MountainOrObstacle}");
             }
         }
 

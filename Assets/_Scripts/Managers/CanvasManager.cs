@@ -158,7 +158,6 @@ public class CanvasManager : MonoBehaviour
 
     void ChooseSceneToLoadAfterBattle()
     {   
-        Debug.Log($"Scene to load: {GameManager.Instance.GetSceneNumber()}");
         switch (GameManager.Instance.GetSceneNumber())
         {
             case 3:
